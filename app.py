@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from models import setup_db
 from flask_cors import CORS
+from models import setup_db, Actors, Movies
 
 def create_app(test_config=None):
 
