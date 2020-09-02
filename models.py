@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String,Integer, create_engine
+from sqlalchemy import Column, String,Integer,Date, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 import os
@@ -24,24 +24,25 @@ def setup_db(app, database_path=database_path):
 
 
 '''
-Person
-Have title and release year
+Actor
+Have name, age and gender
 '''
-class Person(db.Model):  
-  __tablename__ = 'People'
+class Actors(db.Model):  
+  __tablename__ = 'actors'
 
   id = Column(Integer, primary_key=True)
   name = Column(String)
+  age = Column(Integer)
   gender = Column(String)
-  catchphrase = Column(String)
 
+'''
+Movie
+Have title and release date
+'''
+class Movies(db.Model):  
+  __tablename__ = 'movies'
 
-  def __init__(self, name, catchphrase=""):
-    self.name = name
-    self.catchphrase = catchphrase
-
-  def format(self):
-    return {
-      'id': self.id,
-      'name': self.name,
-      'catchphrase': self.catchphrase}
+  id = Column(Integer, primary_key=True)
+  title = Column(String)
+  country = Column(String)
+  release_date = Column(Date)
