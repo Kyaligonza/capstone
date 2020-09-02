@@ -18,7 +18,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'actors': actors
+                'actors': "testing"
             }), 200
         except:
             abort(500)  # server error
@@ -31,7 +31,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'movies': movies
+                'movies': "testing"
             }), 200
         except:
             abort(500)  # server error
@@ -48,7 +48,7 @@ def create_app(test_config=None):
             actor.delete()
             return jsonify({
                 "success": True,
-                "delete": actor_id
+                "delete": "testing"
             }), 200
         except BaseException:
             abort(500)
@@ -88,7 +88,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'actors': actor
+                'actors': "testing"
             }), 200
         except BaseException:
             abort(422)
@@ -112,7 +112,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'movies': movie
+                'movies': "testing"
             }), 200
         except BaseException:
             abort(422)
@@ -167,11 +167,11 @@ def create_app(test_config=None):
                 movie.country = body.get('country')
 
             movie.update()
-            movie_updated = Movies.query.filter(Movies.id == movie_id).one_or_none()
+            # movie_updated = Movies.query.filter(Movies.id == movie_id).one_or_none()
 
             return jsonify({
                 'success': True,
-                'drinks': movie_updated
+                'drinks': "testing"
             }), 200
 
         except:
