@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, abort
 import json
 from models import setup_db
 from flask_cors import CORS
-from models import setup_db, actors, movies
+from models import setup_db, Actors, Movies
 
 def create_app(test_config=None):
 
@@ -14,7 +14,7 @@ def create_app(test_config=None):
     @app.route('/actors')
     def get_actors():
         try:
-            actors = actors.query.all()
+            actors = Actors.query.all()
             actors = [item.format() for item in actors]
 
             return jsonify({
