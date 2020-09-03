@@ -19,7 +19,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'actors': "testing"
+                'actors': actors
             }), 200
         except:
             abort(500)  # server error
@@ -32,7 +32,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'movies': "testing"
+                'movies': movies
             }), 200
         except:
             abort(500)  # server error
@@ -49,7 +49,7 @@ def create_app(test_config=None):
             actor.delete()
             return jsonify({
                 "success": True,
-                "delete": "testing"
+                "delete": actor_id
             }), 200
         except BaseException:
             abort(500)
@@ -89,7 +89,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'actors': "testing"
+                'actors': actor
             }), 200
         except BaseException:
             abort(422)
@@ -113,7 +113,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'movies': "testing"
+                'movies': movie
             }), 200
         except BaseException:
             abort(422)
