@@ -77,7 +77,7 @@ def create_app(test_config=None):
         body = request.get_json()
         try:
             req_name = body.get("name", None)
-            req_age = body.get('age', None)
+            req_age = int(body.get('age', None))
             req_gender = body.get('gender', None)
             actor = Actors(
                 name=req_name,
