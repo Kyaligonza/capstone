@@ -35,6 +35,15 @@ class Actors(db.Model):
   age = Column(Integer)
   gender = Column(String)
 
+
+def format(self):
+    return {
+      'id': self.id,
+      'name': self.name,
+      'age': self.age,
+      'gender': self.gender
+    }
+
 '''
 Movie
 Have title and release date
