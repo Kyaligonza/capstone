@@ -15,11 +15,11 @@ def create_app(test_config=None):
     def get_actors():
         try:
             actors = Actors.query.all()
-            actors = [item.format() for item in actors]
+            # actors = [item.format() for item in actors]
 
             return jsonify({
                 'success': True,
-                'actors': actors
+                # 'actors': actors
             }), 200
         except:
             abort(500)  # server error
