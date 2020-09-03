@@ -14,7 +14,7 @@ def create_app(test_config=None):
     @app.route('/actors')
     def get_actors():
         try:
-            actors = Actors.query.all()
+            actors = Actors.query.order_by(Actors.id).all()
             actorx = [actor.format() for actor in actors]
 
             return jsonify({
@@ -27,7 +27,7 @@ def create_app(test_config=None):
     @app.route('/movies')
     def get_movies():
         try:
-            movies = Movies.query.all()
+            movies = Movies.query.order_by(Movies.id).all()
             moviex = [movie.format() for movie in movies]
 
             return jsonify({
@@ -89,7 +89,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'actors': actor
+                'actors': actor.id
             }), 200
         except BaseException:
             abort(422)
@@ -103,7 +103,7 @@ def create_app(test_config=None):
             req_title = body.get("title", None)
             req_release = body.get("release_date", None)
             req_country = body.get("country", None)
-            movie = Actors(
+            movie = Movies(
                 title=req_title,
                 release_date=req_release,
                 country=req_country
@@ -113,7 +113,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'movies': movie
+                'movies': movie.id
             }), 200
         except BaseException:
             abort(422)
