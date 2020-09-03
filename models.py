@@ -35,14 +35,29 @@ class Actors(db.Model):
   age = Column(Integer)
   gender = Column(String)
 
+  def __init__(self, name, age, gender):
+    self.name = name
+    self.age = age
+    self.gender = gender
 
-def format(self):
-    return {
-      'id': self.id,
-      'name': self.name,
-      'age': self.age,
-      'gender': self.gender
-    }
+  def insert(self):
+    db.session.add(self)
+    db.session.commit()
+  
+  def update(self):
+    db.session.commit()
+
+  def delete(self):
+    db.session.delete(self)
+    db.session.commit()
+  
+  def format(self):
+      return {
+        'id': self.id,
+        'name': self.name,
+        'age': self.age,
+        'gender': self.gender
+      }
 
 '''
 Movie
@@ -55,3 +70,27 @@ class Movies(db.Model):
   title = Column(String)
   country = Column(String)
   release_date = Column(Date)
+
+  def __init__(self, title,country,release_date):
+    self.title = title
+    self.country = country
+    self.release_date = release_date
+  
+  def insert(self):
+    db.session.add(self)
+    db.session.commit()
+  
+  def update(self):
+    db.session.commit()
+
+  def delete(self):
+    db.session.delete(self)
+    db.session.commit()
+
+  def format(self):
+    return {
+      'id': self.id,
+      'title': self.title,
+      'country':self.country,
+      'release_date':self.release_date
+    }
