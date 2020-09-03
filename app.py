@@ -172,7 +172,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'movies': movie_updated
+                'movies': [movie_updated.format()]
             }), 200
 
         except:
