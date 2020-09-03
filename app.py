@@ -132,10 +132,16 @@ def create_app(test_config=None):
 
             if 'name' in body:
                 actor.name = body.get('name')
+            else:
+                actor.name = actor.name
             if 'age' in body:
                 actor.age = int(body.get('age'))
+            else:
+                actor.age = actor.age
             if 'gender' in body:
                 actor.age = body.get('gender')
+            else:
+                actor.gender = actor.gender
 
             actor.update()
             actor_updated = Actors.query.filter(Actors.id == actor_id).one_or_none()
