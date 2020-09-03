@@ -15,7 +15,7 @@ def create_app(test_config=None):
     def get_actors():
         try:
             actors = Actors.query.all()
-            # drinks = [drink.short() for drink in drink_short]
+            actors = [item.format() for item in actors]
 
             return jsonify({
                 'success': True,
