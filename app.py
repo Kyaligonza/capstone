@@ -133,7 +133,7 @@ def create_app(test_config=None):
             if 'name' in body:
                 actor.name = body.get('name')
             if 'age' in body:
-                actor.age = body.get('age')
+                actor.age = int(body.get('age'))
             if 'gender' in body:
                 actor.age = body.get('gender')
 
@@ -142,7 +142,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                'actor': actor_updated
+                'actor': [actor_updated.format()]
             }), 200
 
         except:
