@@ -19,7 +19,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 'success': True,
-                # 'actors': actors
+                'actors': actors
             }), 200
         except:
             abort(500)  # server error
