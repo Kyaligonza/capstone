@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, abort
 import json
 from models import setup_db
 from flask_cors import CORS
-from models import setup_db, Actors, Movies
+from models import setup_db, actors, movies
 
 def create_app(test_config=None):
 
