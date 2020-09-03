@@ -15,11 +15,11 @@ def create_app(test_config=None):
     def get_actors():
         try:
             actors = Actors.query.all()
-            actorsx = [item.format() for item in actors]
+            actorx = [actor.format() for actor in actors]
 
             return jsonify({
                 'success': True,
-                'actors': actorsx
+                'actors': actorx
             }), 200
         except:
             abort(500)  # server error
@@ -28,11 +28,11 @@ def create_app(test_config=None):
     def get_movies():
         try:
             movies = Movies.query.all()
-            # drinks = [drink.short() for drink in drink_short]
+            moviex = [movie.format() for movie in movies]
 
             return jsonify({
                 'success': True,
-                'movies': movies
+                'movies': moviex
             }), 200
         except:
             abort(500)  # server error
@@ -168,11 +168,11 @@ def create_app(test_config=None):
                 movie.country = body.get('country')
 
             movie.update()
-            # movie_updated = Movies.query.filter(Movies.id == movie_id).one_or_none()
+            movie_updated = Movies.query.filter(Movies.id == movie_id).one_or_none()
 
             return jsonify({
                 'success': True,
-                'drinks': "testing"
+                'movies': movie_updated
             }), 200
 
         except:
