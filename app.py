@@ -39,8 +39,8 @@ def create_app(test_config=None):
             abort(500)  # server error
     
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
-    # @requires_auth('delete:drinks')
-    def delete_actors(actor_id):      #def delete_actors(payload, drink_id)
+    @requires_auth('delete:actors')
+    def delete_actors(payload,actor_id):      #def delete_actors(payload, drink_id)
         actor = Actors.query.filter(Actors.id == actor_id).one_or_none()
 
         if actor is None:
@@ -56,8 +56,8 @@ def create_app(test_config=None):
             abort(500)
     
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
-    # @requires_auth('delete:drinks')
-    def delete_movies(movie_id):      #def delete_actors(payload, drink_id)
+    @requires_auth('delete:movies')
+    def delete_movies(payload,movie_id):      #def delete_actors(payload, drink_id)
         movie = Movies.query.filter(Movies.id == movie_id).one_or_none()
 
         if movie is None:
@@ -73,8 +73,8 @@ def create_app(test_config=None):
             abort(500)
     
     @app.route('/actors', methods=['POST'])
-    # @requires_auth('post:drinks')
-    def post_actors():  #post_actors(payload)
+    @requires_auth('post:actors')
+    def post_actors(payload):  #post_actors(payload)
         body = request.get_json()
         try:
             req_name = body.get("name", None)
@@ -97,8 +97,8 @@ def create_app(test_config=None):
     
     
     @app.route('/movies', methods=['POST'])
-    # @requires_auth('post:drinks')
-    def post_movies():  #post_actors(payload)
+    @requires_auth('post:movies')
+    def post_movies(payload):  #post_actors(payload)
         body = request.get_json()
         try:
             req_title = body.get("title", None)
@@ -121,8 +121,8 @@ def create_app(test_config=None):
     
 
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
-    # @requires_auth('patch:drinks')
-    def update_actor(actor_id): #update_drink(payload, drink_id
+    @requires_auth('patch:actors')
+    def update_actor(payload,actor_id): #update_drink(payload, drink_id
 
         body = request.get_json()
 
@@ -151,8 +151,8 @@ def create_app(test_config=None):
 
     
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
-    # @requires_auth('patch:drinks')
-    def update_movie(movie_id): #update_drink(payload, drink_id
+    @requires_auth('patch:movies')
+    def update_movie(payload,movie_id): #update_drink(payload, drink_id
 
         body = request.get_json()
 
