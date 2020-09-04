@@ -13,7 +13,8 @@ def create_app(test_config=None):
     CORS(app)
 
     @app.route('/actors')
-    def get_actors():
+    @requires_auth('get:actors')
+    def get_actors(payload):
         try:
             actors = Actors.query.order_by(Actors.id).all()
             actorx = [actor.format() for actor in actors]
@@ -26,7 +27,8 @@ def create_app(test_config=None):
             abort(500)  # server error
 
     @app.route('/movies')
-    def get_movies():
+    @requires_auth('get:movies')
+    def get_movies(payload): 
         try:
             movies = Movies.query.order_by(Movies.id).all()
             moviex = [movie.format() for movie in movies]
@@ -40,7 +42,7 @@ def create_app(test_config=None):
     
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
     @requires_auth('delete:actors')
-    def delete_actors(payload,actor_id):      #def delete_actors(payload, drink_id)
+    def delete_actors(payload,actor_id):      
         actor = Actors.query.filter(Actors.id == actor_id).one_or_none()
 
         if actor is None:
@@ -57,7 +59,7 @@ def create_app(test_config=None):
     
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
     @requires_auth('delete:movies')
-    def delete_movies(payload,movie_id):      #def delete_actors(payload, drink_id)
+    def delete_movies(payload,movie_id):      
         movie = Movies.query.filter(Movies.id == movie_id).one_or_none()
 
         if movie is None:
@@ -74,7 +76,7 @@ def create_app(test_config=None):
     
     @app.route('/actors', methods=['POST'])
     @requires_auth('post:actors')
-    def post_actors(payload):  #post_actors(payload)
+    def post_actors(payload):  
         body = request.get_json()
         try:
             req_name = body.get("name", None)
@@ -98,7 +100,7 @@ def create_app(test_config=None):
     
     @app.route('/movies', methods=['POST'])
     @requires_auth('post:movies')
-    def post_movies(payload):  #post_actors(payload)
+    def post_movies(payload):  
         body = request.get_json()
         try:
             req_title = body.get("title", None)
@@ -122,7 +124,7 @@ def create_app(test_config=None):
 
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
     @requires_auth('patch:actors')
-    def update_actor(payload,actor_id): #update_drink(payload, drink_id
+    def update_actor(payload,actor_id): 
 
         body = request.get_json()
 
@@ -152,7 +154,7 @@ def create_app(test_config=None):
     
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     @requires_auth('patch:movies')
-    def update_movie(payload,movie_id): #update_drink(payload, drink_id
+    def update_movie(payload,movie_id): 
 
         body = request.get_json()
 
