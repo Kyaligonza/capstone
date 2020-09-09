@@ -37,9 +37,14 @@ class AuthError(Exception):
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
     """
+    if 'access_token' in flask.request.form:
+        return flask.request.form['access_token']
+    if 'access_token' in flask.request.args:
+        return flask.request.args['access_token']
+    auth = flask.request.headers.get('Authorization', None)
     # auth = request.headers.get('Authorization', None)
-    auth = request.headers.get('Authorization', None)
-    if auth is None:
+    # auth = request.headers.get('Authorization', None)
+    if not auth:
         raise AuthError({
             'code': 'authorization_header_missing',
             'description': 'Authorization header is expected.'
