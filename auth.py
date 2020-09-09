@@ -42,18 +42,16 @@ def get_token_auth_header():
     if 'access_token' in request.args:
         return request.args['access_token']
     
-    if "Authorization" not in request.headers:
-        abort(401)
-    auth = request.headers['Authorization']
+ 
     # auth = ({'Authorization':'Bearer eytgfb'}, None)
-    # auth = request.headers.get('Authorization', None)
-    # if not auth:
-    #     raise AuthError({
-    #         'code': 'authorization_header_missing',
-    #         'description': 'Authorization header is expected.'
-    #     }, 401)
+    auth = request.headers.get('Authorization', None)
+    if not auth:
+        raise AuthError({
+            'code': 'authorization_header_missing',
+            'description': 'Authorization header is expected.'
+        }, 401)
 
-    parts = auth.split(" ")
+    parts = auth.split(' ')
     if parts[0].lower() != 'bearer':
         raise AuthError({
             'code': 'invalid_header',
