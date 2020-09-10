@@ -4,6 +4,12 @@ from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
 
+import os 
+SECRET_KEY=os.urandom(32)
+
+# Grabs the folder where the script runs.
+basedir=os.path.abspath(os.path.dirname(__file__))
+
 
 AUTH0_DOMAIN = 'agent88.us.auth0.com'
 ALGORITHMS = ['RS256']
@@ -51,7 +57,7 @@ def get_token_auth_header():
             'description': 'Authorization header is expected.'
         }, 401)
 
-    parts = auth.split(' ')
+    parts = auth.split()
     if parts[0].lower() != 'bearer':
         raise AuthError({
             'code': 'invalid_header',
