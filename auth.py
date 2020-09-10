@@ -41,7 +41,62 @@ class AuthError(Exception):
 '''
 
 
-#moved this down
+def get_token_auth_header():
+    """Obtains the Access Token from the Authorization Header
+    """
+    if 'access_token' in request.form:
+        return request.form['access_token']
+    if 'access_token' in request.args:
+        return request.args['access_token']
+    
+ 
+    auth = ({'Authorization':'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNTk5NzY4NTE4LCJleHAiOjE1OTk4NTQ5MTgsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.nBLg-5By9rn6FY1Btxk-pBBma5yLPjt2pDHRs-G15udQCsfXDfbhIK2Gk-I_isJ3T9qjINjxyn4ilbhDND6ykuu4QjcBlrWg6IdTxauMuG3Qx32S8K5fSMSAf3cArX1oAetSX5qP6RzYYiV7GEHBlU7Ghfod11mnY_OnN_KTL79fJc_pTtfULYb7Jxl8CLEC6i5TQonwjBa18XXGfJQU6NIc-6gmc-w-o_k7Am0vcyd8xKXXeiQl65Wd-8xgEu2mX4EnHArEXCWPBpvqTO3q7rzqi3x5atDOrVkIyuQ_tH2qZSquou8ElP0j6s6YzxxkC8A-lh0O0Q3WKguQx9muPw'}, None)
+    # auth = request.headers.get('Authorization', None)
+    if not auth:
+        raise AuthError({
+            'code': 'authorization_header_missing',
+            'description': 'Authorization header is expected.'
+        }, 401)
+
+    parts = auth.split()
+    if parts[0].lower() != 'bearer':
+        raise AuthError({
+            'code': 'invalid_header',
+            'description': 'Authorization header must start with "Bearer".'
+        }, 401)
+
+    elif len(parts) == 1:
+        raise AuthError({
+            'code': 'invalid_header',
+            'description': 'Token not found.'
+        }, 401)
+
+    elif len(parts) > 2:
+        raise AuthError({
+            'code': 'invalid_header',
+            'description': 'Authorization header must be bearer token.'
+        }, 401)
+
+    token = parts[1]
+    return token
+#    raise Exception('Not Implemented')
+
+
+'''
+@Done implement check_permissions(permission, payload) method
+    @INPUTS
+        permission: string permission (i.e. 'post:drink')
+        payload: decoded jwt payload
+
+        it should raise an AuthError if permissions
+        are not included in the payload
+        !!NOTE check your RBAC settings in Auth0
+        it should raise an AuthError if the requested permission
+        string is not in the payload permissions array
+        return true otherwise
+'''
+
+
 def check_permissions(permission, payload):
     if 'permissions' not in payload:
         raise AuthError({
@@ -129,62 +184,6 @@ def verify_decode_jwt(token):
     }, 400)
 
     # raise Exception('Not Implemented')
-def get_token_auth_header():
-    """Obtains the Access Token from the Authorization Header
-    """
-    if 'access_token' in request.form:
-        return request.form['access_token']
-    if 'access_token' in request.args:
-        return request.args['access_token']
-    
- 
-    # auth = ({'Authorization':'Bearer eytgfb'}, None)
-    auth = request.headers.get('Authorization', None)
-    if not auth:
-        raise AuthError({
-            'code': 'authorization_header_missing',
-            'description': 'Authorization header is expected.'
-        }, 401)
-
-    parts = auth.split()
-    if parts[0].lower() != 'bearer':
-        raise AuthError({
-            'code': 'invalid_header',
-            'description': 'Authorization header must start with "Bearer".'
-        }, 401)
-
-    elif len(parts) == 1:
-        raise AuthError({
-            'code': 'invalid_header',
-            'description': 'Token not found.'
-        }, 401)
-
-    elif len(parts) > 2:
-        raise AuthError({
-            'code': 'invalid_header',
-            'description': 'Authorization header must be bearer token.'
-        }, 401)
-
-    token = parts[1]
-    return token
-#    raise Exception('Not Implemented')
-
-
-'''
-@Done implement check_permissions(permission, payload) method
-    @INPUTS
-        permission: string permission (i.e. 'post:drink')
-        payload: decoded jwt payload
-
-        it should raise an AuthError if permissions
-        are not included in the payload
-        !!NOTE check your RBAC settings in Auth0
-        it should raise an AuthError if the requested permission
-        string is not in the payload permissions array
-        return true otherwise
-'''
-
-
 
 '''
 @Done implement @requires_auth(permission) decorator method
