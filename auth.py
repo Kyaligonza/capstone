@@ -5,10 +5,10 @@ from jose import jwt
 from urllib.request import urlopen
 import base64
 
-# import os 
-# SECRET_KEY=os.urandom(32)
+import os 
+SECRET_KEY=os.urandom(32)
 
-# # Grabs the folder where the script runs.
+# Grabs the folder where the script runs.
 # basedir=os.path.abspath(os.path.dirname(__file__))
 
 
