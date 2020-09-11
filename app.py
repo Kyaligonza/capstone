@@ -19,10 +19,11 @@ def create_app(test_config=None):
       return response
     
     @app.route('/headers')
-    def get_header():
-        # token = request.headers.get('Authorization')
+    def headers():
+        tk= request.headers['Authorization']
+        print(tk)
 
-        return response
+        return 'done baby yaaah'
 
     @app.route('/actors')
     @requires_auth('get:actors')
