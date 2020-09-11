@@ -22,10 +22,11 @@ def create_app(test_config=None):
     def headers():
         # tk= request.headers['Authorization']
         # print(tk)
+        greeting ="hi girl"
 
         return jsonify({
                 'success': True,
-                'response': response
+                'response': greeting
             }),200
 
     @app.route('/actors')
