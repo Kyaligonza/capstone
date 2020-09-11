@@ -19,19 +19,19 @@ def create_app(test_config=None):
       response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
       return response
     
-    @app.route('/headers')
-    def headers():
-        tk= request.headers.get('Authorization')
-        # print(tk)
+    # @app.route('/headers')
+    # def headers():
+    #     tk= request.headers.get('Authorization')
+    #     # print(tk)
 
-        return jsonify({
-                'success': True,
-                'response': tk
-            }),200
+    #     return jsonify({
+    #             'success': True,
+    #             'response': tk
+    #         }),200
 
     @app.route('/actors')
-    @requires_auth('get:actors')
-    def get_actors(payload): #payload
+    # @requires_auth('get:actors')
+    def get_actors(): #payload
         try:
             actors = Actors.query.order_by(Actors.id).all()
             actorx = [actor.format() for actor in actors]
@@ -44,8 +44,8 @@ def create_app(test_config=None):
             abort(500)  # server error
 
     @app.route('/movies')
-    @requires_auth('get:movies')
-    def get_movies(payload): 
+    # @requires_auth('get:movies')
+    def get_movies(): 
         try:
             movies = Movies.query.order_by(Movies.id).all()
             moviex = [movie.format() for movie in movies]
@@ -56,6 +56,37 @@ def create_app(test_config=None):
             }), 200
         except:
             abort(500)  # server error
+
+    
+    @app.route('/actors/<int:actor_id>')
+    @requires_auth('get:actors')
+    def get_actors(payload, actor_id): #payload
+        try:
+            actors = Actors.query.order_by(Actors.id).all()
+            actorx = [actor.format() for actor in actors]
+
+            return jsonify({
+                'success': True,
+                'actors': actorx
+            }), 200
+        except:
+            abort(500)  # server error
+
+    @app.route('/movies/<int:movie_id>', methods=['GET'])
+    @requires_auth('get:movies')
+    def get_movies(payload, movie_id): 
+        try:
+            movies = Movies.query.order_by(Movies.id).all()
+            moviex = [movie.format() for movie in movies]
+
+            return jsonify({
+                'success': True,
+                'movies': moviex
+            }), 200
+        except:
+            abort(500)  # server error
+    
+    
     
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
     @requires_auth('delete:actors')
