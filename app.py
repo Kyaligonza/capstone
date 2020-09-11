@@ -20,7 +20,7 @@ def create_app(test_config=None):
     
     @app.route('/headers')
     def headers():
-        tk= request.headers['Authorization']
+        tk= request.headers.get('Authorization')
         # print(tk)
 
         return jsonify({
