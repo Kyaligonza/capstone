@@ -17,10 +17,16 @@ def create_app(test_config=None):
       response.headers.add('Access-Control-Allow-Headers','Content-Type,Authorization,true')
       response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
       return response
+    
+    @app.route('/headers')
+    def get_header():
+        token = request.headers.get('Authorization')
+
+        return token
 
     @app.route('/actors')
-    # @requires_auth('get:actors')
-    def get_actors(): #payload
+    @requires_auth('get:actors')
+    def get_actors(payload): #payload
         try:
             actors = Actors.query.order_by(Actors.id).all()
             actorx = [actor.format() for actor in actors]
