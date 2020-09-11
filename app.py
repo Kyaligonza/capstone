@@ -19,8 +19,8 @@ def create_app(test_config=None):
       return response
 
     @app.route('/actors')
-    @requires_auth('get:actors')
-    def get_actors(payload):
+    # @requires_auth('get:actors')
+    def get_actors(): #payload
         try:
             actors = Actors.query.order_by(Actors.id).all()
             actorx = [actor.format() for actor in actors]
