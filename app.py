@@ -12,21 +12,20 @@ def create_app(test_config=None):
     setup_db(app)
 
     CORS(app)
-    @app.after_request
-    def after_request(response):
-      response.headers.add('Access-Control-Allow-Headers','Content-Type,Authorization,true')
-      response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
-      return response
+    # @app.after_request
+    # def after_request(response):
+    #   response.headers.add('Access-Control-Allow-Headers','Content-Type,Authorization,true')
+    #   response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
+    #   return response
     
     @app.route('/headers')
     def headers():
-        # tk= request.headers['Authorization']
+        tk= request.headers['Authorization']
         # print(tk)
-        greeting ="hi girl"
 
         return jsonify({
                 'success': True,
-                'response': greeting
+                'response': tk
             }),200
 
     @app.route('/actors')
