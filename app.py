@@ -20,10 +20,13 @@ def create_app(test_config=None):
     
     @app.route('/headers')
     def headers():
-        tk= request.headers['Authorization']
-        print(tk)
+        # tk= request.headers['Authorization']
+        # print(tk)
 
-        return 'done baby yaaah'
+        return jsonify({
+                'success': True,
+                'response': response
+            }),200
 
     @app.route('/actors')
     @requires_auth('get:actors')
