@@ -16,6 +16,8 @@ AUTH0_DOMAIN = 'agent88.us.auth0.com'
 ALGORITHMS = ['RS256']
 API_AUDIENCE = 'stars'
 
+CLIENT_ID = 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
+CLIENT_SECRET = 'euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_'
 # AuthError Exception
 '''
 AuthError Exception
