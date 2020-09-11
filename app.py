@@ -20,9 +20,9 @@ def create_app(test_config=None):
     
     @app.route('/headers')
     def get_header():
-        token = request.headers.get('Authorization')
+        # token = request.headers.get('Authorization')
 
-        return token
+        return response
 
     @app.route('/actors')
     @requires_auth('get:actors')
