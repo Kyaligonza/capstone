@@ -29,38 +29,38 @@ def create_app(test_config=None):
     #             'response': tk
     #         }),200
 
-    @app.route('/actors')
-    # @requires_auth('get:actors')
-    def get_actors(): #payload
-        try:
-            actors = Actors.query.order_by(Actors.id).all()
-            actorx = [actor.format() for actor in actors]
+    # @app.route('/actors')
+    # # @requires_auth('get:actors')
+    # def get_actors(): #payload
+    #     try:
+    #         actors = Actors.query.order_by(Actors.id).all()
+    #         actorx = [actor.format() for actor in actors]
 
-            return jsonify({
-                'success': True,
-                'actors': actorx
-            }), 200
-        except:
-            abort(500)  # server error
+    #         return jsonify({
+    #             'success': True,
+    #             'actors': actorx
+    #         }), 200
+    #     except:
+    #         abort(500)  # server error
 
-    @app.route('/movies')
-    # @requires_auth('get:movies')
-    def get_movies(): 
-        try:
-            movies = Movies.query.order_by(Movies.id).all()
-            moviex = [movie.format() for movie in movies]
+    # @app.route('/movies')
+    # # @requires_auth('get:movies')
+    # def get_movies(): 
+    #     try:
+    #         movies = Movies.query.order_by(Movies.id).all()
+    #         moviex = [movie.format() for movie in movies]
 
-            return jsonify({
-                'success': True,
-                'movies': moviex
-            }), 200
-        except:
-            abort(500)  # server error
+    #         return jsonify({
+    #             'success': True,
+    #             'movies': moviex
+    #         }), 200
+    #     except:
+    #         abort(500)  # server error
 
     
-    @app.route('/actors/<int:actor_id>')
+    @app.route('/actors', methods=['GET'])
     @requires_auth('get:actors')
-    def get_actor(payload, actor_id): #payload
+    def get_actors(payload): #payload
         try:
             actors = Actors.query.order_by(Actors.id).all()
             actorx = [actor.format() for actor in actors]
@@ -72,9 +72,9 @@ def create_app(test_config=None):
         except:
             abort(500)  # server error
 
-    @app.route('/movies/<int:movie_id>', methods=['GET'])
+    @app.route('/movies', methods=['GET'])
     @requires_auth('get:movies')
-    def get_movie(payload, movie_id): 
+    def get_movies(payload, movie_id): 
         try:
             movies = Movies.query.order_by(Movies.id).all()
             moviex = [movie.format() for movie in movies]
