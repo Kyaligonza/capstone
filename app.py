@@ -32,7 +32,7 @@ def create_app(test_config=None):
         url = f'https://{AUTH0_DOMAIN}/authorize' \
             f'?audience={API_AUDIENCE}' \
             f'&response_type=token&client_id=' \
-            f'{AUTH0_CLIENT_ID}&redirect_uri=' \
+            f'{CLIENT_ID}&redirect_uri=' \
             f'{AUTH0_CALLBACK_URL}'
 
         return jsonify({
