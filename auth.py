@@ -4,16 +4,21 @@ from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
 import os
-from os import environ
+# from os import environ
+from config import auth0_config
 
 
 # AUTH0_DOMAIN = 'agent88.us.auth0.com'
 # ALGORITHMS = ['RS256']
 # API_AUDIENCE = 'stars'
 
-AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
-ALGORITHMS = os.environ.get('ALGORITHMS')
-API_AUDIENCE = os.environ.get('API_AUDIENCE')
+AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
+ALGORITHMS = auth0_config['ALGORITHMS']
+API_AUDIENCE = auth0_config['API_AUDIENCE']
+
+# AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+# ALGORITHMS = os.environ.get('ALGORITHMS')
+# API_AUDIENCE = os.environ.get('API_AUDIENCE')
 # CLIENT_ID = os.environ.get('CLIENT_ID')
 # CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
