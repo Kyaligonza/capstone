@@ -34,7 +34,7 @@ class AuthError(Exception):
 '''
 import http.client
 
-conn = http.client.HTTPSConnection("agent88.us.auth0.com/actors")
+conn = http.client.HTTPSConnection("agent88.us.auth0.com")
 
 payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
 
@@ -45,13 +45,21 @@ conn.request("POST", "/oauth/token", payload, headers)
 
 res = conn.getresponse()
 data = res.read()
-
-print(data.decode("utf-8"))
+data1 = data.decode("utf-8")
+result = json.loads(data1)
+# result = requests.post(url,
+#       headers={'Content-Type':'application/json',
+#                'Authorization': 'Bearer {}'.format(access_token)})
+# print(data.decode("utf-8"))
+# tokenx = res.headers.get("access-token")
+access_token = result['access_token']
+print(result['access_token'])
 
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
     """
-    auth = request.headers.get('Authorization', None)
+    auth = {'Authorization': 'Bearer {}'.format(access_token)}
+    # auth = request.headers.get('Authorization', None)
     if not auth:
         raise AuthError({
             'code': 'authorization_header_missing',

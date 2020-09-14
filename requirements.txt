@@ -3,7 +3,6 @@ appdirs==1.4.4
 asn1crypto==0.24.0
 attrs==20.1.0
 Automat==0.6.0
-authlib-0.14.3
 autopep8==1.5.3
 awscli==1.18.124
 Babel==2.8.0
@@ -18,7 +17,7 @@ cryptography==2.1.4
 distlib==0.3.1
 docutils==0.15.2
 ecdsa==0.16.0
-filelock==3.0.12
+# filelock==3.0.12
 Flask==1.1.2
 Flask-Cors==3.0.8
 Flask-Migrate==2.5.3
