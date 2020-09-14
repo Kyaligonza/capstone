@@ -3,11 +3,18 @@ from flask import request, _request_ctx_stack
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
+import os
 
 
-AUTH0_DOMAIN = 'agent88.us.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'stars'
+# AUTH0_DOMAIN = 'agent88.us.auth0.com'
+# ALGORITHMS = ['RS256']
+# API_AUDIENCE = 'stars'
+
+AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+ALGORITHMS = os.environ.get('ALGORITHMS')
+API_AUDIENCE = os.environ.get('API_AUDIENCE')
+CLIENT_ID = os.environ.get('CLIENT_ID')
+CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
 # AuthError Exception
 '''
@@ -32,21 +39,21 @@ class AuthError(Exception):
     it should raise an AuthError if the header is malformed
     return the token part of the header
 '''
-import http.client
+# import http.client
 
-conn = http.client.HTTPSConnection("agent88.us.auth0.com")
+# conn = http.client.HTTPSConnection("agent88.us.auth0.com")
 
-payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
 
-# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\"}"
-headers = { 'content-type': "application/json" }
+# # payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\"}"
+# headers = { 'content-type': "application/json" }
 
-conn.request("POST", "/oauth/token", payload, headers)
+# conn.request("POST", "/oauth/token", payload, headers)
 
-res = conn.getresponse()
-data = res.read()
-data1 = data.decode("utf-8")
-result = json.loads(data1)
+# res = conn.getresponse()
+# data = res.read()
+# data1 = data.decode("utf-8")
+# result = json.loads(data1)
 # result = requests.post(url,
 #       headers={'Content-Type':'application/json',
 #                'Authorization': 'Bearer {}'.format(access_token)})
