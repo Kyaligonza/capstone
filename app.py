@@ -20,24 +20,24 @@ def create_app(test_config=None):
       return response
     
     
-    AUTH0_DOMAIN='agent88.us.auth0.com'
-    # ALGORITHMS=['RS256']
-    API_AUDIENCE='stars'
-    CLIENT_ID='xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
-    # CLIENT_SECRET='euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_'
-    AUTH0_CALLBACK_URL='https://myapphsbk.herokuapp.com/'
-    #Returns the login url for auth0
-    @app.route("/auth")
-    def generate_auth_url():
-        url = f'https://{AUTH0_DOMAIN}/authorize' \
-            f'?audience={API_AUDIENCE}' \
-            f'&response_type=token&client_id=' \
-            f'{CLIENT_ID}&redirect_uri=' \
-            f'{AUTH0_CALLBACK_URL}'
+    # AUTH0_DOMAIN='agent88.us.auth0.com'
+    # # ALGORITHMS=['RS256']
+    # API_AUDIENCE='stars'
+    # CLIENT_ID='xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
+    # # CLIENT_SECRET='euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_'
+    # AUTH0_CALLBACK_URL='https://myapphsbk.herokuapp.com/'
+    # #Returns the login url for auth0
+    # @app.route("/auth")
+    # def generate_auth_url():
+    #     url = f'https://{AUTH0_DOMAIN}/authorize' \
+    #         f'?audience={API_AUDIENCE}' \
+    #         f'&response_type=token&client_id=' \
+    #         f'{CLIENT_ID}&redirect_uri=' \
+    #         f'{AUTH0_CALLBACK_URL}'
 
-        return jsonify({
-            'url': url
-        })
+    #     return jsonify({
+    #         'url': url
+    #     })
     # @app.route('/headers')
     # def headers():
     #     tk= request.headers.get('Authorization')
