@@ -59,8 +59,8 @@ class AuthError(Exception):
 #                'Authorization': 'Bearer {}'.format(access_token)})
 # print(data.decode("utf-8"))
 # tokenx = res.headers.get("access-token")
-access_token = result['access_token']
-print(result['access_token'])
+# access_token = result['access_token']
+# print(result['access_token'])
 
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
