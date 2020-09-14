@@ -6,13 +6,13 @@ from urllib.request import urlopen
 import os
 
 
-# AUTH0_DOMAIN = 'agent88.us.auth0.com'
-# ALGORITHMS = ['RS256']
-# API_AUDIENCE = 'stars'
+AUTH0_DOMAIN = 'agent88.us.auth0.com'
+ALGORITHMS = ['RS256']
+API_AUDIENCE = 'stars'
 
-AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
-ALGORITHMS = os.environ.get('ALGORITHMS')
-API_AUDIENCE = os.environ.get('API_AUDIENCE')
+# AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+# ALGORITHMS = os.environ.get('ALGORITHMS')
+# API_AUDIENCE = os.environ.get('API_AUDIENCE')
 # CLIENT_ID = os.environ.get('CLIENT_ID')
 # CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
