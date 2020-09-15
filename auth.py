@@ -13,6 +13,8 @@ ALGORITHMS = ['RS256']
 API_AUDIENCE = 'stars'
 CLIENT_ID  = 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
 
+SECRET_KEY='GodLove'
+
 # AUTH0_DOMAIN = 'agency99.us.auth0.com'
 # ALGORITHMS = ['RS256']
 # API_AUDIENCE = 'actors'
