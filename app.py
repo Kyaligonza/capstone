@@ -1,7 +1,6 @@
 import os
 from flask import Flask, request, jsonify, abort
 import json
-# from models import setup_db
 from flask_cors import CORS, cross_origin
 from models import setup_db, Actors, Movies
 from auth import AuthError, requires_auth
@@ -48,34 +47,7 @@ def create_app(test_config=None):
     #             'response': tk
     #         }),200
 
-    # @app.route('/actors')
-    # # @requires_auth('get:actors')
-    # def get_actors(): #payload
-    #     try:
-    #         actors = Actors.query.order_by(Actors.id).all()
-    #         actorx = [actor.format() for actor in actors]
-
-    #         return jsonify({
-    #             'success': True,
-    #             'actors': actorx
-    #         }), 200
-    #     except:
-    #         abort(500)  # server error
-
-    # @app.route('/movies')
-    # # @requires_auth('get:movies')
-    # def get_movies(): 
-    #     try:
-    #         movies = Movies.query.order_by(Movies.id).all()
-    #         moviex = [movie.format() for movie in movies]
-
-    #         return jsonify({
-    #             'success': True,
-    #             'movies': moviex
-    #         }), 200
-    #     except:
-    #         abort(500)  # server error
-
+    
     
     @app.route('/actors', methods=['GET'])
     @cross_origin()
