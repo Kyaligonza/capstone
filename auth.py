@@ -1,20 +1,22 @@
 import json
 from flask import request, _request_ctx_stack
 from functools import wraps
-from jose import jwt
-from urllib.request import urlopen
 import os
+from urllib.request import urlopen
+from jose import jwt
 # from os import environ
-from config import auth0_config
+# from config import auth0_config
 
 
-# AUTH0_DOMAIN = 'agent88.us.auth0.com'
-# ALGORITHMS = ['RS256']
-# API_AUDIENCE = 'stars'
-
-AUTH0_DOMAIN = 'agency99.us.auth0.com'
+AUTH0_DOMAIN = 'agent88.us.auth0.com'
 ALGORITHMS = ['RS256']
-API_AUDIENCE = 'actors'
+API_AUDIENCE = 'stars'
+CLIENT_ID  = 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
+
+# AUTH0_DOMAIN = 'agency99.us.auth0.com'
+# ALGORITHMS = ['RS256']
+# API_AUDIENCE = 'actors'
+
 
 # AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
 # ALGORITHMS = auth0_config['ALGORITHMS']
