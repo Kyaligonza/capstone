@@ -4,14 +4,14 @@ from functools import wraps
 import os
 from urllib.request import urlopen
 from jose import jwt
-from os import environ
-# from config import auth0_config
+# from os import environ
+from config import auth0_config
 
 
 AUTH0_DOMAIN = 'agent88.us.auth0.com'
 ALGORITHMS = ['RS256']
 API_AUDIENCE = 'stars'
-CLIENT_ID  = 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
+# CLIENT_ID  = 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
 
 # SECRET_KEY='GodLove'
 
@@ -23,12 +23,14 @@ CLIENT_ID  = 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
 # AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
 # ALGORITHMS = auth0_config['ALGORITHMS']
 # API_AUDIENCE = auth0_config['API_AUDIENCE']
+CLIENT_ID = auth0_config['CLIENT_ID']
+CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 
-AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
-ALGORITHMS = os.environ.get('ALGORITHMS')
-API_AUDIENCE = os.environ.get('API_AUDIENCE')
-CLIENT_ID = os.environ.get('CLIENT_ID')
-CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
+# AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+# ALGORITHMS = os.environ.get('ALGORITHMS')
+# API_AUDIENCE = os.environ.get('API_AUDIENCE')
+# CLIENT_ID = os.environ.get('CLIENT_ID')
+# CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
 # AuthError Exception
 '''
