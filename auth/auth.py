@@ -63,7 +63,6 @@ payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\"
 headers = { "content-type": "application/json" }
 
 conn.request("POST", "/oauth/token", payload, headers)
-
 res = conn.getresponse()
 data = res.read()
 data1 = data.decode("utf-8")
@@ -74,7 +73,8 @@ result = json.loads(data1)
 # print(data.decode("utf-8"))
 # tokenx = res.headers.get("access-token")
 access_token = result['access_token']
-print(result['access_token'])
+# print(result['access_token'])
+
 
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
