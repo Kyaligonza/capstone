@@ -60,7 +60,16 @@ import http.client
 conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
 
 # payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
-payload ="{\"client_id\":\f"CLIENT_ID"\,\"client_secret\":\f"CLIENT_SECRET"\,\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+# payload ="{\"client_id\":\f"CLIENT_ID"\,\"client_secret\":\f"CLIENT_SECRET"\,\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+payload = {
+
+   "client_id": "xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ",
+
+   "client_secret" : "euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_",
+
+   "audience": "stars",
+
+   "grant_type": "client_credentials"}
 # payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\"}"
 headers = { "content-type": "application/json" }
 
