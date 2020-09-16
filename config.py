@@ -8,6 +8,6 @@ auth0_config = {
     'ALGORITHMS' : ['RS256'],
     'API_AUDIENCE' : 'stars',
     'CLIENT_ID': 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ',
-    'CLIENT_SECRET: 'euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_'
+    'CLIENT_SECRET': 'euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_'
     # 'AUTH0_CALLBACK_URL'='https://myapphsbk.herokuapp.com/'
 }
