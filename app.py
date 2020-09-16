@@ -38,15 +38,15 @@ def create_app(test_config=None):
     #     return jsonify({
     #         'url': url
     #     })
-    @app.route('/headers')
-    def headers():
-        tk= request.args.get('access_token')
-        print(tk)
+    # @app.route('/headers')
+    # def headers():
+    #     tk= request.args.get('access_token')
+    #     print(tk)
 
-        return jsonify({
-                'success': True,
-                'response': tk
-            }),200
+    #     return jsonify({
+    #             'success': True,
+    #             'response': tk
+    #         }),200
 
     
     
