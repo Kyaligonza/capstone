@@ -5,7 +5,7 @@ import os
 from urllib.request import urlopen
 from jose import jwt
 # from os import environ
-from config import auth0_config
+# from config import auth0_config
 
 
 AUTH0_DOMAIN = 'agent88.us.auth0.com'
@@ -23,8 +23,8 @@ API_AUDIENCE = 'stars'
 # AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
 # ALGORITHMS = auth0_config['ALGORITHMS']
 # API_AUDIENCE = auth0_config['API_AUDIENCE']
-CLIENT_ID = auth0_config['CLIENT_ID']
-CLIENT_SECRET = auth0_config['CLIENT_SECRET']
+# CLIENT_ID = auth0_config['CLIENT_ID']
+# CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 
 # AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 # ALGORITHMS = os.environ.get('ALGORITHMS')
