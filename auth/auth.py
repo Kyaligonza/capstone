@@ -79,7 +79,7 @@ print(result['access_token'])
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
     """
-    auth = {'Authorization': 'Bearer {}'.format(access_token)}
+    auth = {'Authorization': 'learer {}'.format(access_token)}
     # auth = request.headers.get('Authorization', None)
     if not auth:
         raise AuthError({
