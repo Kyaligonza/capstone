@@ -11,8 +11,7 @@ from config import auth0_config
 # AUTH0_DOMAIN = 'agent88.us.auth0.com'
 # ALGORITHMS = ['RS256']
 # API_AUDIENCE = 'stars'
-CLIENT_ID  = xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ
-CLIENT_SECRET = euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_
+# CLIENT_ID  = xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ
 
 # SECRET_KEY='GodLove'
 
@@ -24,8 +23,8 @@ CLIENT_SECRET = euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_
 AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
 ALGORITHMS = auth0_config['ALGORITHMS']
 API_AUDIENCE = auth0_config['API_AUDIENCE']
-# CLIENT_ID = auth0_config['CLIENT_ID']
-# CLIENT_SECRET = auth0_config['CLIENT_SECRET']
+CLIENT_ID = auth0_config['CLIENT_ID']
+CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 
 # AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 # ALGORITHMS = os.environ.get('ALGORITHMS')
@@ -60,8 +59,8 @@ import http.client
 
 conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
 
-# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
-payload ="{\"client_id\":\"f"CLIENT_ID"\",\"client_secret\":\"f"CLIENT_SECRET"\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+# payload ="{\"client_id\":\"f"CLIENT_ID"\",\"client_secret\":\"f"CLIENT_SECRET"\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
 # payload = {
 
 #    "client_id": "xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ",
