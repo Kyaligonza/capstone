@@ -4,7 +4,7 @@ from functools import wraps
 import os
 from urllib.request import urlopen
 from jose import jwt
-# from os import environ
+from os import environ
 # from config import auth0_config
 
 
