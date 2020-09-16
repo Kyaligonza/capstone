@@ -4,7 +4,7 @@ import json
 # from models import setup_db
 from flask_cors import CORS, cross_origin
 from models import setup_db, Actors, Movies
-from auth import AuthError, requires_auth
+from auth.auth import AuthError, requires_auth
 
 def create_app(test_config=None):
 
