@@ -51,7 +51,7 @@ def create_app(test_config=None):
     
     
     @app.route('/actors', methods=['GET'])
-    @cross_origin()
+    # @cross_origin()
     @requires_auth('get:actors')
     def get_actors(payload): #payload
         try:
