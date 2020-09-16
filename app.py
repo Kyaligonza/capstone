@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, jsonify, abort
 import json
+# from models import setup_db
 from flask_cors import CORS, cross_origin
 from models import setup_db, Actors, Movies
 from auth import AuthError, requires_auth
@@ -14,7 +15,7 @@ def create_app(test_config=None):
 
     @app.after_request
     def after_request(response):
-      response.headers.add('Access-Control-Allow-Headers','Content-Type,Authorization,True')
+      response.headers.add('Access-Control-Allow-Headers','Content-Type,Authorization')
       response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
       return response
     
