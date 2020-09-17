@@ -17,7 +17,7 @@ API_AUDIENCE = auth0_config['API_AUDIENCE']
 CLIENT_ID = auth0_config['CLIENT_ID']
 CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 
-AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+# AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 # ALGORITHMS = os.environ.get('ALGORITHMS')
 # API_AUDIENCE = os.environ.get('API_AUDIENCE')
 # CLIENT_ID = os.environ.get('CLIENT_ID')
