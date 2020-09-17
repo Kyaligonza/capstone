@@ -1,7 +1,4 @@
-import os
 
-# Gets the folder where the script runs.
-basedir = os.path.abspath(os.path.dirname(__file__))
 
 #Export DATABASE_URL
 export DATABASE_URL='postgresql://postgres:postgres@localhost:5432/mycapstone'
