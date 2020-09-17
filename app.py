@@ -18,7 +18,7 @@ def create_app(test_config=None):
     #   response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
     #   return response
 
-"""Endpoints for Actors and Movies [get,delete,post and patch]"""
+    """Endpoints for Actors and Movies [get,delete,post and patch]"""
    
     
     @app.route('/actors', methods=['GET'])
