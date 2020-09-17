@@ -6,19 +6,10 @@ from urllib.request import urlopen
 from jose import jwt
 from os import environ
 from config import auth0_config
+import http.client
 
 
-# AUTH0_DOMAIN = 'agent88.us.auth0.com'
-# ALGORITHMS = ['RS256']
-# API_AUDIENCE = 'stars'
-# CLIENT_ID  = xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ
-
-# SECRET_KEY='GodLove'
-
-# AUTH0_DOMAIN = 'agency99.us.auth0.com'
-# ALGORITHMS = ['RS256']
-# API_AUDIENCE = 'actors'
-
+# AUTH0 variables
 
 AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
 ALGORITHMS = auth0_config['ALGORITHMS']
@@ -33,6 +24,7 @@ CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 # CLIENT_SECRET = environ.get('CLIENT_SECRET')
 
 # AuthError Exception
+
 '''
 AuthError Exception
 A standardized way to communicate auth failure modes
@@ -45,32 +37,13 @@ class AuthError(Exception):
         self.status_code = status_code
 
 
-# Auth Header
+# Auth Header or access_token if Header unavailable
 
-'''
-@Done implement get_token_auth_header() method
-    it should attempt to get the header from the request
-    it should raise an AuthError if no header is present
-    it should attempt to split bearer and the token
-    it should raise an AuthError if the header is malformed
-    return the token part of the header
-'''
-import http.client
 
 conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
 
 payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
-# payload ="{\"client_id\":\"f"CLIENT_ID"\",\"client_secret\":\"f"CLIENT_SECRET"\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
-# payload = {
 
-#    "client_id": "xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ",
-
-#    "client_secret" : "euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_",
-
-#    "audience": "stars",
-
-#    "grant_type": "client_credentials"}
-# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\"}"
 headers = { "content-type": "application/json" }
 
 conn.request("POST", "/oauth/token", payload, headers)
@@ -78,11 +51,6 @@ res = conn.getresponse()
 data = res.read()
 data1 = data.decode("utf-8")
 result = json.loads(data1)
-# result = requests.post(url,
-    #   headers={'Content-Type':'application/json',
-            #    'Authorization': 'Bearer {}'.format(access_token)})
-# print(data.decode("utf-8"))
-# tokenx = res.headers.get("access-token")
 access_token = result['access_token']
 # print(result['access_token'])
 
@@ -238,22 +206,6 @@ def verify_decode_jwt(token):
         return the decorator which passes the decoded payload
         to the decorated method
 '''
-
-# def requires_auth(permission=''):
-#     def requires_auth_decorator(f):
-#         @wraps(f)
-#         def wrapper(*args, **kwargs):
-#             token = get_token_auth_header()
-#             try:
-#                 payload = verify_decode_jwt(token)
-#             except Exception:
-#                 abort(401)
-
-#             check_permissions(permission, payload)
-#             return f(payload, *args, **kwargs)
-
-#         return wrapper
-#     return requires_auth_decorator
 
 def requires_auth(permission=''):
     def requires_auth_decorator(f):
