@@ -1,7 +1,7 @@
+import os
 import json
 from flask import request, _request_ctx_stack
 from functools import wraps
-import os
 from urllib.request import urlopen
 from jose import jwt
 from os import environ
@@ -11,17 +11,21 @@ import http.client
 
 # AUTH0 variables
 
-AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
+# AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
 ALGORITHMS = auth0_config['ALGORITHMS']
 API_AUDIENCE = auth0_config['API_AUDIENCE']
 CLIENT_ID = auth0_config['CLIENT_ID']
 CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 
-# AUTH0_DOMAIN = environ.get('AUTH0_DOMAIN')
-# ALGORITHMS = environ.get('ALGORITHMS')
-# API_AUDIENCE = environ.get('API_AUDIENCE')
-# CLIENT_ID = environ.get('CLIENT_ID')
-# CLIENT_SECRET = environ.get('CLIENT_SECRET')
+# AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+# ALGORITHMS = os.environ.get('ALGORITHMS')
+# API_AUDIENCE = os.environ.get('API_AUDIENCE')
+# CLIENT_ID = os.environ.get('CLIENT_ID')
+# CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
+
+AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
+# ALGORITHMS = os.environ['ALGORITHMS']
+# API_AUDIENCE = os.environ['API_AUDIENCE']
 
 # AuthError Exception
 
@@ -92,17 +96,10 @@ def get_token_auth_header():
 
 
 '''
-@Done implement check_permissions(permission, payload) method
+implement check_permissions(permission, payload) method
     @INPUTS
         permission: string permission (i.e. 'post:drink')
         payload: decoded jwt payload
-
-        it should raise an AuthError if permissions
-        are not included in the payload
-        !!NOTE check your RBAC settings in Auth0
-        it should raise an AuthError if the requested permission
-        string is not in the payload permissions array
-        return true otherwise
 '''
 
 
@@ -123,7 +120,7 @@ def check_permissions(permission, payload):
 
 
 '''
-@Done implement verify_decode_jwt(token) method
+implement verify_decode_jwt(token) method
     @INPUTS
         token: a json web token (string)
 
@@ -132,9 +129,6 @@ def check_permissions(permission, payload):
     it should decode the payload from the token
     it should validate the claims
     return the decoded payload
-
-    !!NOTE urlopen has a common certificate error described here:
-    https://stackoverflow.com/questions/50236117/scraping-ssl-certificate-verify-failed-error-for-http-en-wikipedia-org
 '''
 
 
@@ -196,7 +190,7 @@ def verify_decode_jwt(token):
 
 
 '''
-@Done implement @requires_auth(permission) decorator method
+implement @requires_auth(permission) decorator method
     @INPUTS
         permission: string permission (i.e. 'post:drink')
         it should use the get_token_auth_header method to get the token

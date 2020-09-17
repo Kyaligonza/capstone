@@ -4,7 +4,7 @@ __pycache__/
 test.db
 env
 # config.py
-setup.sh
+# setup.sh
 
 # OS generated files #
 ######################

@@ -1,7 +1,6 @@
 import os
 from flask import Flask, request, jsonify, abort
 import json
-# from models import setup_db
 from flask_cors import CORS, cross_origin
 from models import setup_db, Actors, Movies
 from auth.auth import AuthError, requires_auth
@@ -18,42 +17,13 @@ def create_app(test_config=None):
     #   response.headers.add('Access-Control-Allow-Headers','Content-Type,Authorization')
     #   response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
     #   return response
-    
-    
-    # AUTH0_DOMAIN='agent88.us.auth0.com'
-    # # ALGORITHMS=['RS256']
-    # API_AUDIENCE='stars'
-    # CLIENT_ID='xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
-    # # CLIENT_SECRET='euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_'
-    # AUTH0_CALLBACK_URL='https://myapphsbk.herokuapp.com/'
-    # #Returns the login url for auth0
-    # @app.route("/auth")
-    # def generate_auth_url():
-    #     url = f'https://{AUTH0_DOMAIN}/authorize' \
-    #         f'?audience={API_AUDIENCE}' \
-    #         f'&response_type=token&client_id=' \
-    #         f'{CLIENT_ID}&redirect_uri=' \
-    #         f'{AUTH0_CALLBACK_URL}'
 
-    #     return jsonify({
-    #         'url': url
-    #     })
-    # @app.route('/headers')
-    # def headers():
-    #     tk= request.args.get('access_token')
-    #     print(tk)
-
-    #     return jsonify({
-    #             'success': True,
-    #             'response': tk
-    #         }),200
-
-    
+"""Endpoints for Actors and Movies [get,delete,post and patch]"""
+   
     
     @app.route('/actors', methods=['GET'])
-    # @cross_origin()
     @requires_auth('get:actors')
-    def get_actors(payload): #payload
+    def get_actors(payload): 
         try:
             actors = Actors.query.order_by(Actors.id).all()
             actorx = [actor.format() for actor in actors]
@@ -63,7 +33,7 @@ def create_app(test_config=None):
                 'actors': actorx
             }), 200
         except:
-            abort(500)  # server error
+            abort(500)  
 
     @app.route('/movies', methods=['GET'])
     @requires_auth('get:movies')
@@ -77,9 +47,8 @@ def create_app(test_config=None):
                 'movies': moviex
             }), 200
         except:
-            abort(500)  # server error
-    
-    
+            abort(500)  
+
     
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
     @requires_auth('delete:actors')
@@ -224,11 +193,13 @@ def create_app(test_config=None):
 
     @app.route('/coolkids')
     def be_cool():
-        return "Be cool, man, be coooool! You're almost a FSND grad! # Soooo excited"
+        return "This is our time, the time is now...FSND graduate #excited!!!!"
+
+
 
     # Error Handling
     '''
-    Example error handling for unprocessable entity
+    Error handling for unprocessable entity, resource not found, server error and auth_errors
     '''
 
 
@@ -241,18 +212,6 @@ def create_app(test_config=None):
         }), 422
 
 
-    '''
-    @Done implement error handlers using the @app.errorhandler(error) decorator
-        each error handler should return (with approprate messages):
-                jsonify({
-                        "success": False,
-                        "error": 404,
-                        "message": "resource not found"
-                        }), 404
-
-    '''
-
-
     @app.errorhandler(404)
     def not_found(error):
         return jsonify({
@@ -260,12 +219,6 @@ def create_app(test_config=None):
             "error": 404,
             "message": "resource not found"
         }), 404
-
-
-    '''
-    @Done implement error handler for 404
-        error handler should conform to general task above
-    '''
 
 
     @app.errorhandler(500)
@@ -278,10 +231,9 @@ def create_app(test_config=None):
 
 
     '''
-    @Done implement error handler for AuthError
-        error handler should conform to general task above
-    '''
+    Error handler for AuthError
 
+    '''
 
     @app.errorhandler(AuthError)
     def auth_error(error):
