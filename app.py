@@ -18,18 +18,8 @@ def create_app(test_config=None):
     #   response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
     #   return response
 
-    """Endpoints for Actors and Movies [get,delete,post and patch]"""
-   
-    @app.route("/query")
-    def query():
-
-        args = request.args
-
-        print(args)
-
-        return "No query string received", 200
-
-        
+    
+    @APP.route("/api/private")  
     @app.route('/actors', methods=['GET'])
     # @cross_origin
     @requires_auth('get:actors')

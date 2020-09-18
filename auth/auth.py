@@ -41,22 +41,22 @@ class AuthError(Exception):
         self.status_code = status_code
 
 
-# Auth Header or access_token if Header unavailable
+"""Auth Header or access_token if Header unavailable"""
 
 
-# conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
+conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
 
-# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
 
-# headers = { "content-type": "application/json" }
+headers = { "content-type": "application/json" }
 
-# conn.request("POST", "/oauth/token", payload, headers)
-# res = conn.getresponse()
-# data = res.read()
-# data1 = data.decode("utf-8")
-# result = json.loads(data1)
-# access_token = result['access_token']
-# print(result['access_token'])
+conn.request("POST", "/oauth/token", payload, headers)
+res = conn.getresponse()
+data = res.read()
+data1 = data.decode("utf-8")
+result = json.loads(data1)
+access_token = result['access_token']
+print(result['access_token'])
 
 
 
