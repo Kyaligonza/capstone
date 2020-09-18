@@ -72,14 +72,19 @@ def get_token_auth_header():
     # auth = {'Authorization': 'Bearer {}'.format(access_token)}
     # auth ='Bearer {}'.format(access_token)
     auth = request.headers.get('Authorization', None)
-    if auth is None and access_token == access_token:
-        auth ='Bearer {}'.format(access_token)
-    
-    else :
+    if auth is None :
         raise AuthError({
             'code': 'authorization_header_missing',
             'description': 'Authorization header is expected.'
-        }, 401)                     
+        }, 401)   
+    # if auth is None and access_token == access_token:
+    #     auth ='Bearer {}'.format(access_token)
+    
+    # else :
+    #     raise AuthError({
+    #         'code': 'authorization_header_missing',
+    #         'description': 'Authorization header is expected.'
+    #     }, 401)                     
 
     parts = auth.split()
     if parts[0].lower() != 'bearer':
