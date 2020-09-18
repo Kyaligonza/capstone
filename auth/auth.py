@@ -1,28 +1,21 @@
+import os
 import json
 from flask import request, _request_ctx_stack
 from functools import wraps
-import os
 from urllib.request import urlopen
 from jose import jwt
-# from os import environ
-# from config import auth0_config
+from os import environ
+from config import auth0_config
+import http.client
 
 
-AUTH0_DOMAIN = 'agent88.us.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'stars'
-CLIENT_ID  = 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
+# AUTH0 variables
 
-# SECRET_KEY='GodLove'
-
-# AUTH0_DOMAIN = 'agency99.us.auth0.com'
-# ALGORITHMS = ['RS256']
-# API_AUDIENCE = 'actors'
-
-
-# AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
-# ALGORITHMS = auth0_config['ALGORITHMS']
-# API_AUDIENCE = auth0_config['API_AUDIENCE']
+AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
+ALGORITHMS = auth0_config['ALGORITHMS']
+API_AUDIENCE = auth0_config['API_AUDIENCE']
+# CLIENT_ID = auth0_config['CLIENT_ID']
+# CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 
 # AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 # ALGORITHMS = os.environ.get('ALGORITHMS')
@@ -30,7 +23,12 @@ CLIENT_ID  = 'xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ'
 # CLIENT_ID = os.environ.get('CLIENT_ID')
 # CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
+# AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
+# ALGORITHMS = os.environ['ALGORITHMS']
+# API_AUDIENCE = os.environ['API_AUDIENCE']
+
 # AuthError Exception
+
 '''
 AuthError Exception
 A standardized way to communicate auth failure modes
@@ -43,49 +41,44 @@ class AuthError(Exception):
         self.status_code = status_code
 
 
-# Auth Header
+"""Auth Header or access_token if Header unavailable"""
 
-'''
-@Done implement get_token_auth_header() method
-    it should attempt to get the header from the request
-    it should raise an AuthError if no header is present
-    it should attempt to split bearer and the token
-    it should raise an AuthError if the header is malformed
-    return the token part of the header
-'''
-# import http.client
 
-# conn = http.client.HTTPSConnection("agent88.us.auth0.com")
+conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
 
-# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
 
-# # payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\"}"
-# headers = { 'content-type': "application/json" }
+headers = { "content-type": "application/json" }
 
-# conn.request("POST", "/oauth/token", payload, headers)
+conn.request("POST", "/oauth/token", payload, headers)
+res = conn.getresponse()
+data = res.read()
+data1 = data.decode("utf-8")
+result = json.loads(data1)
+access_token = result['access_token']
+print(result['access_token'])
 
-# res = conn.getresponse()
-# data = res.read()
-# data1 = data.decode("utf-8")
-# result = json.loads(data1)
-# result = requests.post(url,
-#       headers={'Content-Type':'application/json',
-#                'Authorization': 'Bearer {}'.format(access_token)})
-# print(data.decode("utf-8"))
-# tokenx = res.headers.get("access-token")
-# access_token = result['access_token']
-# print(result['access_token'])
+
 
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
     """
     # auth = {'Authorization': 'Bearer {}'.format(access_token)}
+    # auth ='Bearer {}'.format(access_token)
     auth = request.headers.get('Authorization', None)
-    if not auth:
+    # if auth is None :
+    #     raise AuthError({
+    #         'code': 'authorization_header_missing',
+    #         'description': 'Authorization header is expected.'
+    #     }, 401)   
+    if auth is None and access_token == access_token:
+        auth ='Bearer {}'.format(access_token)
+    
+    else :
         raise AuthError({
             'code': 'authorization_header_missing',
             'description': 'Authorization header is expected.'
-        }, 401)
+        }, 401)                     
 
     parts = auth.split()
     if parts[0].lower() != 'bearer':
@@ -112,17 +105,10 @@ def get_token_auth_header():
 
 
 '''
-@Done implement check_permissions(permission, payload) method
+implement check_permissions(permission, payload) method
     @INPUTS
         permission: string permission (i.e. 'post:drink')
         payload: decoded jwt payload
-
-        it should raise an AuthError if permissions
-        are not included in the payload
-        !!NOTE check your RBAC settings in Auth0
-        it should raise an AuthError if the requested permission
-        string is not in the payload permissions array
-        return true otherwise
 '''
 
 
@@ -143,7 +129,7 @@ def check_permissions(permission, payload):
 
 
 '''
-@Done implement verify_decode_jwt(token) method
+implement verify_decode_jwt(token) method
     @INPUTS
         token: a json web token (string)
 
@@ -152,9 +138,6 @@ def check_permissions(permission, payload):
     it should decode the payload from the token
     it should validate the claims
     return the decoded payload
-
-    !!NOTE urlopen has a common certificate error described here:
-    https://stackoverflow.com/questions/50236117/scraping-ssl-certificate-verify-failed-error-for-http-en-wikipedia-org
 '''
 
 
@@ -216,7 +199,7 @@ def verify_decode_jwt(token):
 
 
 '''
-@Done implement @requires_auth(permission) decorator method
+implement @requires_auth(permission) decorator method
     @INPUTS
         permission: string permission (i.e. 'post:drink')
         it should use the get_token_auth_header method to get the token
@@ -226,22 +209,6 @@ def verify_decode_jwt(token):
         return the decorator which passes the decoded payload
         to the decorated method
 '''
-
-# def requires_auth(permission=''):
-#     def requires_auth_decorator(f):
-#         @wraps(f)
-#         def wrapper(*args, **kwargs):
-#             token = get_token_auth_header()
-#             try:
-#                 payload = verify_decode_jwt(token)
-#             except Exception:
-#                 abort(401)
-
-#             check_permissions(permission, payload)
-#             return f(payload, *args, **kwargs)
-
-#         return wrapper
-#     return requires_auth_decorator
 
 def requires_auth(permission=''):
     def requires_auth_decorator(f):
