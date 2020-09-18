@@ -12,10 +12,10 @@ import http.client
 # AUTH0 variables
 
 AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
-ALGORITHMS = auth0_config['ALGORITHMS']
-API_AUDIENCE = auth0_config['API_AUDIENCE']
-CLIENT_ID = auth0_config['CLIENT_ID']
-CLIENT_SECRET = auth0_config['CLIENT_SECRET']
+# ALGORITHMS = auth0_config['ALGORITHMS']
+# API_AUDIENCE = auth0_config['API_AUDIENCE']
+# CLIENT_ID = auth0_config['CLIENT_ID']
+# CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 
 # AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 # ALGORITHMS = os.environ.get('ALGORITHMS')
@@ -26,6 +26,12 @@ CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 # AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
 # ALGORITHMS = os.environ['ALGORITHMS']
 # API_AUDIENCE = os.environ['API_AUDIENCE']
+
+
+
+AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+ALGORITHMS = ['RS256']
+API_AUDIENCE = "new"
 
 # AuthError Exception
 
@@ -44,19 +50,19 @@ class AuthError(Exception):
 """Auth Header or access_token if Header unavailable"""
 
 
-conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
+# conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
 
-payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
 
-headers = { "content-type": "application/json" }
+# headers = { "content-type": "application/json" }
 
-conn.request("POST", "/oauth/token", payload, headers)
-res = conn.getresponse()
-data = res.read()
-data1 = data.decode("utf-8")
-result = json.loads(data1)
-access_token = result['access_token']
-print(result['access_token'])
+# conn.request("POST", "/oauth/token", payload, headers)
+# res = conn.getresponse()
+# data = res.read()
+# data1 = data.decode("utf-8")
+# result = json.loads(data1)
+# access_token = result['access_token']
+# print(result['access_token'])
 
 
 
@@ -73,7 +79,7 @@ def get_token_auth_header():
         raise AuthError({
             'code': 'authorization_header_missing',
             'description': 'Authorization header is expected.'
-        }, 401)
+        }, 401)                     
 
     parts = auth.split()
     if parts[0].lower() != 'bearer':
