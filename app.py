@@ -19,7 +19,7 @@ def create_app(test_config=None):
     #   return response
 
     
-    @APP.route("/api/private")  
+    @app.route("/api/private")  
     @app.route('/actors', methods=['GET'])
     # @cross_origin
     @requires_auth('get:actors')
