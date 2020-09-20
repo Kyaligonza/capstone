@@ -110,10 +110,14 @@ def get_token_auth_header():
             if bearer_token_array[0] and bearer_token_array[0].lower() == "bearer" and bearer_token_array[1]:
                 return bearer_token_array[1]
     raise AuthError({
-        'success': False,
-        'message': 'JWT not found',
-        'error': 401
+        'code': 'missing_header',
+        'description': 'Authorization header must be bearer token.'
     }, 401)
+    # raise AuthError({
+    #     'success': False,
+    #     'message': 'JWT not found',
+    #     'error': 401
+    # }, 401)
 #    raise Exception('Not Implemented')
 
 
