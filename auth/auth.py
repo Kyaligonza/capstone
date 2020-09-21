@@ -60,17 +60,17 @@ print(result['access_token'])
 
 
 
-# def get_token_auth_header():
-#     """Obtains the Access Token from the Authorization Header
-#     """
+def get_token_auth_header():
+    """Obtains the Access Token from the Authorization Header
+    """
     # auth = {'Authorization': 'Bearer {}'.format(access_token)}
     # auth ='Bearer {}'.format(access_token)
-    # auth = request.headers.get('Authorization', None)
-    # # if auth is None :
-    # #     raise AuthError({
-    # #         'code': 'authorization_header_missing',
-    # #         'description': 'Authorization header is expected.'
-    # #     }, 401)   
+    auth = request.headers.get('Authorization', None)
+    if auth is None :
+        raise AuthError({
+            'code': 'authorization_header_missing',
+            'description': 'Authorization header is expected.'
+        }, 401)   
     # if auth is None and access_token == access_token:
     #     auth ='Bearer {}'.format(access_token)
     
