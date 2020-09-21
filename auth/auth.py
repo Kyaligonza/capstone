@@ -7,6 +7,7 @@ from jose import jwt
 from os import environ
 from config import auth0_config
 import http.client
+import requests
 
 
 # AUTH0 variables
@@ -65,7 +66,7 @@ def get_token_auth_header():
     """
     # auth = {'Authorization': 'Bearer {}'.format(access_token)}
     # auth ='Bearer {}'.format(access_token)
-    auth = request.headers.get('Authorization', None)
+    auth = requests.headers.get('Authorization', None)
     if auth is None :
         raise AuthError({
             'code': 'authorization_header_missing',
