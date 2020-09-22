@@ -1,7 +1,7 @@
 import os
 
 # Gets the folder where the script runs.
-basedir = os.path.abspath(os.path.dirname(__file__))
+# basedir = os.path.abspath(os.path.dirname(__file__))
 
 auth0_config = {
     'AUTH0_DOMAIN' : 'agent88.us.auth0.com',

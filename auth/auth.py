@@ -7,7 +7,6 @@ from jose import jwt
 from os import environ
 from config import auth0_config
 import http.client
-import requests
 
 
 # AUTH0 variables
@@ -15,8 +14,8 @@ import requests
 AUTH0_DOMAIN = auth0_config['AUTH0_DOMAIN']
 ALGORITHMS = auth0_config['ALGORITHMS']
 API_AUDIENCE = auth0_config['API_AUDIENCE']
-# CLIENT_ID = auth0_config['CLIENT_ID']
-# CLIENT_SECRET = auth0_config['CLIENT_SECRET']
+CLIENT_ID = auth0_config['CLIENT_ID']
+CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 
 # AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
 # ALGORITHMS = os.environ.get('ALGORITHMS')
@@ -45,19 +44,19 @@ class AuthError(Exception):
 """Auth Header or access_token if Header unavailable"""
 
 
-conn = http.client.HTTPSConnection(AUTH0_DOMAIN)
+# conn = http.client.HTTPSConnection("agent88.us.auth0.com")
 
-payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_credentials\"}"
+# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_redentials\"}"
 
-headers = { "content-type": "application/json" }
+# headers = {"content-type": "application/json"}
 
-conn.request("POST", "/oauth/token", payload, headers)
-res = conn.getresponse()
-data = res.read()
-data1 = data.decode("utf-8")
-result = json.loads(data1)
-access_token = result['access_token']
-print(result['access_token'])
+# conn.request("POST", "/oauth/token", payload, headers)
+# res = conn.getresponse()
+# data = res.read()
+# data1 = data.decode("utf-8")
+# result = json.loads(data1)
+# access_token = result['access_token']
+# print(result['access_token'])
 
 
 
@@ -66,59 +65,42 @@ def get_token_auth_header():
     """
     # auth = {'Authorization': 'Bearer {}'.format(access_token)}
     # auth ='Bearer {}'.format(access_token)
-    auth = requests.headers.get('Authorization', None)
-    if auth is None :
-        raise AuthError({
-            'code': 'authorization_header_missing',
-            'description': 'Authorization header is expected.'
-        }, 401)   
-    # if auth is None and access_token == access_token:
+    auth = request.headers.get('Authorization', None)
+    #  if auth is None and access_token == access_token:
     #     auth ='Bearer {}'.format(access_token)
     
     # else :
     #     raise AuthError({
     #         'code': 'authorization_header_missing',
     #         'description': 'Authorization header is expected.'
-    #     }, 401)                     
-
-    # parts = auth.split()
-    # if parts[0].lower() != 'bearer':
-    #     raise AuthError({
-    #         'code': 'invalid_header',
-    #         'description': 'Authorization header must start with "Bearer".'
     #     }, 401)
+    if not auth:
+        raise AuthError({
+            'code': 'authorization_header_missing',
+            'description': 'Authorization header is expected.'
+        }, 401)
 
-    # elif len(parts) == 1:
-    #     raise AuthError({
-    #         'code': 'invalid_header',
-    #         'description': 'Token not found.'
-    #     }, 401)
+    parts = auth.split('')
+    if parts[0].lower() != 'bearer':
+        raise AuthError({
+            'code': 'invalid_header',
+            'description': 'Authorization header must start with "Bearer".'
+        }, 401)
 
-    # elif len(parts) > 2:
-    #     raise AuthError({
-    #         'code': 'invalid_header',
-    #         'description': 'Authorization header must be bearer token.'
-    #     }, 401)
+    elif len(parts) == 1:
+        raise AuthError({
+            'code': 'invalid_header',
+            'description': 'Token not found.'
+        }, 401)
 
-    # token = parts[1]
-    # return token
+    elif len(parts) > 2:
+        raise AuthError({
+            'code': 'invalid_header',
+            'description': 'Authorization header must be bearer token.'
+        }, 401)
 
-def get_token_auth_header():
-    if "Authorization" in request.headers:
-        auth_header = request.headers["Authorization"]
-        if auth_header:
-            bearer_token_array = auth_header.split(' ')
-            if bearer_token_array[0] and bearer_token_array[0].lower() == "bearer" and bearer_token_array[1]:
-                return bearer_token_array[1]
-    raise AuthError({
-        'code': 'missing_header',
-        'description': 'Authorization header must be bearer token.'
-    }, 401)
-    # raise AuthError({
-    #     'success': False,
-    #     'message': 'JWT not found',
-    #     'error': 401
-    # }, 401)
+    token = parts[1]
+    return token
 #    raise Exception('Not Implemented')
 
 
@@ -219,7 +201,7 @@ def verify_decode_jwt(token):
 '''
 implement @requires_auth(permission) decorator method
     @INPUTS
-        permission: string permission (i.e. 'post:drink')
+        permission: string permission (i.e. 'post:actors')
         it should use the get_token_auth_header method to get the token
         it should use the verify_decode_jwt method to decode the jwt
         it should use the check_permissions method validate

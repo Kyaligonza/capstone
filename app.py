@@ -9,8 +9,9 @@ def create_app(test_config=None):
 
     app = Flask(__name__)
     setup_db(app)
+    CORS(app)
 
-    CORS(app,resources={r"/*": {"origins": "*"}})
+    # CORS(app,resources={r"/*": {"origins": "*"}})
 
     # @app.after_request
     # def after_request(response):
@@ -284,5 +285,8 @@ def create_app(test_config=None):
 app = create_app()
 
 if __name__ == '__main__':
+
+    # port = int(os.environ.get("PORT", 5000))
+    # app.run(host='localhost', port=port, debug=True)
     app.run()
     # app.run(host='127.0.0.1', port=5000, debug=True)
