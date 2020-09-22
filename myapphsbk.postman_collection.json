@@ -1,0 +1,609 @@
+{
+	"info": {
+		"_postman_id": "dd598424-222c-4548-bd68-a53cfdfc8d6d",
+		"name": "myapphsbk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "casting_assistant",
+			"item": [
+				{
+					"name": "GET /actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5ZWQ2OWM1MTA2MDA2ZGUyMzNjNCIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODExODgwLCJleHAiOjE2MDA4OTgyODAsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.UNc_I9utPjpp-kOMANBFNTQOI92yWY-GOPkNt4lSXVMm8VdUmSXm5_24dlUpapJGKUA2glLSTWpk5qBi4ip1ZDn7Dq_2RCluzZPx7zqzL5kgse2VIUuN7z5qPx5bk_ZpuVLbVsmW1VsrZ2SUdClep7pqMtMjlfuQpC2gaz6B4rJSwOKUit6sYnkvM11osOARGpit9NxeMGaCDfwFld_uf8JOiddfSW-rDXQSHYSNa4l4qc33D4HdCqK50hKrrv5e8YP8pLDFeS6n5jDgu68311JxuQh7us3l_sN4sDpv5OZwvoDdaGAD5VvN91KfeMS6gQv041IeDAMFdd6LKpvFUg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZZbG5Da0VoRjNHZlgxYV9uVDFwVCJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZTc3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZjM0MzgxMmQ1MzA3YTAwM2QyOTU0ZTQiLCJhdWQiOiJjb2ZmZWUiLCJpYXQiOjE1OTc3ODQ0MTIsImV4cCI6MTU5Nzg3MDgxMiwiYXpwIjoiV0R6QWdFellFTU1ma0kyMWJ0aDY1bmo3MjVnelBqUTciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.e-fUKmKpT5d8_X0-AAlAHKgSxPO1AsMCygtrnJxhViL3dzjOyxp0pzAfY47pOXP0qewmIdTz6pa6Bx_nSpHhHlXgdZwS8HLO1H44dc7yq7UPZKvkkbD2BKs7LCEiM8aKVRQSgBlSSWXPrJVXQCrgKTtAwUfawTg-kNYr_oXmt4HNTrJJRdaIXFqqcxtsl06BNORX3KUZG01nQ5eMw__-cAZrg6xxYvYkGlZdilBfKzuEvWW3WjrBZvJeqWNSyvjHVoSBsLOo5zeBDyQ-n0e0ACx67acTKhopTAu563q32XtYpeWJJUJ-JQmUsRIkvurlQjAvIPNE0Y8101RQqTDUug",
+						"type": "string"
+					}
+				]
+			},
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "casting_director",
+			"item": [
+				{
+					"name": "GET /actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5ZWQ2OWM1MTA2MDA2ZGUyMzNjNCIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwMzg0NTY5LCJleHAiOjE2MDA0NzA5NjksImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.N_EmzXAi-BB6t6zWp04yjm1cd0LKYVOnYXa0IiLsJiRjNgR-ABGhCMxdZgxeTvLFXKcd7GDNdJiRunC7KzuIIzvlKtbgbHn8wFjwNbjjvwODXfD1zZwozfai4st6IivaGaqNiSEt2jI7RMYJCamMmTlbBm9n6WXz3ZG5ibTUzSHy0gxFHhy03GLWcnzrx_5fr0FIzCy2bVa-grPf-w9dNOIpNfPLntPcLrh3XvLwJDgBTU4VltHCTGIOdFXUBRw3DJ_9EMUsBjhpmepSI9s2PEQrpOz6miobLqcG_6KvMAP2lPp88P-nks7BG1CDSEe-qrM91-ZntJRjyfM8LUry-A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /actors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNTk5MjU1MzE5LCJleHAiOjE1OTkyNjI1MTksImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.HC5BzcaEJCFVclUO5e0e9sGZdGiX79YVkqa9bDme-gBVw-hobE6F3FTXwt1FZm0P-c1s1fr32lzXnKB1B3BZtP9537rLYtgxLM5AoCSwurFl1K_pP3irGo5L4IR4_o9mA22ebStXBp0dgGh6FYD0EnTZy17fDvq3y7_GX6a1ubSmJbyyxn5qhU62Nv4Bec6LlhwZkgYcNJG26I56yhDOpaoYPxs0rbYKCDNJ5D9S_bMeN5CxSiMMwy_1q5YItoqp89fvwsJVxhWb2lZ3DR-l8BYNrVD4rfZEMKu2GJiUWGB65KUayq8GncdkjWd-nCOFKVhrtosYrCeT3U1KdP4UQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors/9",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNTk5MjU1MzE5LCJleHAiOjE1OTkyNjI1MTksImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.HC5BzcaEJCFVclUO5e0e9sGZdGiX79YVkqa9bDme-gBVw-hobE6F3FTXwt1FZm0P-c1s1fr32lzXnKB1B3BZtP9537rLYtgxLM5AoCSwurFl1K_pP3irGo5L4IR4_o9mA22ebStXBp0dgGh6FYD0EnTZy17fDvq3y7_GX6a1ubSmJbyyxn5qhU62Nv4Bec6LlhwZkgYcNJG26I56yhDOpaoYPxs0rbYKCDNJ5D9S_bMeN5CxSiMMwy_1q5YItoqp89fvwsJVxhWb2lZ3DR-l8BYNrVD4rfZEMKu2GJiUWGB65KUayq8GncdkjWd-nCOFKVhrtosYrCeT3U1KdP4UQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/movies/6",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /actors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODAxODc4LCJleHAiOjE2MDA4ODgyNzgsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfBfDWNGf7Jz-_EzK1zWRJ0TSvXHIP9XwjFQhqqvXONGkXcBkVbNPA5GOCx1xzrCH3xPsNNxvvGaZjLYMrKjRpjMG3TfL2ZCF8ghmogyjBjvzQjc5LNXwi4k_A8difY5hIBKf7-CkafUXZZYVF3Hu8hZmyxEUlMYWSLceDMSWaEAs36HuzbOkgf_J4c_tCq-q6z0zwW2e6FQZJKcEssiMDYu16w46wsoTom78n_r1BRgzF2k6wL-PIaxcjgrrRvH06gSYvy5EiSyErL63D1p5TfxZVrqVWK-cEOAXY9VbsnQS4QZa22rreKRNWgRaq3GTG_lLO8dDAFGSb3N8SEr8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"age\": 75,\r\n            \"gender\": \"male\",\r\n            \"name\": \"Tom Cruisecccc\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODAxODc4LCJleHAiOjE2MDA4ODgyNzgsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfBfDWNGf7Jz-_EzK1zWRJ0TSvXHIP9XwjFQhqqvXONGkXcBkVbNPA5GOCx1xzrCH3xPsNNxvvGaZjLYMrKjRpjMG3TfL2ZCF8ghmogyjBjvzQjc5LNXwi4k_A8difY5hIBKf7-CkafUXZZYVF3Hu8hZmyxEUlMYWSLceDMSWaEAs36HuzbOkgf_J4c_tCq-q6z0zwW2e6FQZJKcEssiMDYu16w46wsoTom78n_r1BRgzF2k6wL-PIaxcjgrrRvH06gSYvy5EiSyErL63D1p5TfxZVrqVWK-cEOAXY9VbsnQS4QZa22rreKRNWgRaq3GTG_lLO8dDAFGSb3N8SEr8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"Gone with the wind\",\r\n            \"release_date\": \"1939-02-16\",\r\n            \"country\": \"US\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /actors",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Water5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODAxODc4LCJleHAiOjE2MDA4ODgyNzgsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfBfDWNGf7Jz-_EzK1zWRJ0TSvXHIP9XwjFQhqqvXONGkXcBkVbNPA5GOCx1xzrCH3xPsNNxvvGaZjLYMrKjRpjMG3TfL2ZCF8ghmogyjBjvzQjc5LNXwi4k_A8difY5hIBKf7-CkafUXZZYVF3Hu8hZmyxEUlMYWSLceDMSWaEAs36HuzbOkgf_J4c_tCq-q6z0zwW2e6FQZJKcEssiMDYu16w46wsoTom78n_r1BRgzF2k6wL-PIaxcjgrrRvH06gSYvy5EiSyErL63D1p5TfxZVrqVWK-cEOAXY9VbsnQS4QZa22rreKRNWgRaq3GTG_lLO8dDAFGSb3N8SEr8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"country\": \"Venus\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/movies/7",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZZbG5Da0VoRjNHZlgxYV9uVDFwVCJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZTc3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZjM0MzgxMmQ1MzA3YTAwM2QyOTU0ZTQiLCJhdWQiOiJjb2ZmZWUiLCJpYXQiOjE1OTc3ODQ0MTIsImV4cCI6MTU5Nzg3MDgxMiwiYXpwIjoiV0R6QWdFellFTU1ma0kyMWJ0aDY1bmo3MjVnelBqUTciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.e-fUKmKpT5d8_X0-AAlAHKgSxPO1AsMCygtrnJxhViL3dzjOyxp0pzAfY47pOXP0qewmIdTz6pa6Bx_nSpHhHlXgdZwS8HLO1H44dc7yq7UPZKvkkbD2BKs7LCEiM8aKVRQSgBlSSWXPrJVXQCrgKTtAwUfawTg-kNYr_oXmt4HNTrJJRdaIXFqqcxtsl06BNORX3KUZG01nQ5eMw__-cAZrg6xxYvYkGlZdilBfKzuEvWW3WjrBZvJeqWNSyvjHVoSBsLOo5zeBDyQ-n0e0ACx67acTKhopTAu563q32XtYpeWJJUJ-JQmUsRIkvurlQjAvIPNE0Y8101RQqTDUug",
+						"type": "string"
+					}
+				]
+			},
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "executive_producer",
+			"item": [
+				{
+					"name": "GET /actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /actors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNTk5MjU1MzE5LCJleHAiOjE1OTkyNjI1MTksImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.HC5BzcaEJCFVclUO5e0e9sGZdGiX79YVkqa9bDme-gBVw-hobE6F3FTXwt1FZm0P-c1s1fr32lzXnKB1B3BZtP9537rLYtgxLM5AoCSwurFl1K_pP3irGo5L4IR4_o9mA22ebStXBp0dgGh6FYD0EnTZy17fDvq3y7_GX6a1ubSmJbyyxn5qhU62Nv4Bec6LlhwZkgYcNJG26I56yhDOpaoYPxs0rbYKCDNJ5D9S_bMeN5CxSiMMwy_1q5YItoqp89fvwsJVxhWb2lZ3DR-l8BYNrVD4rfZEMKu2GJiUWGB65KUayq8GncdkjWd-nCOFKVhrtosYrCeT3U1KdP4UQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors/9",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNTk5MjU1MzE5LCJleHAiOjE1OTkyNjI1MTksImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.HC5BzcaEJCFVclUO5e0e9sGZdGiX79YVkqa9bDme-gBVw-hobE6F3FTXwt1FZm0P-c1s1fr32lzXnKB1B3BZtP9537rLYtgxLM5AoCSwurFl1K_pP3irGo5L4IR4_o9mA22ebStXBp0dgGh6FYD0EnTZy17fDvq3y7_GX6a1ubSmJbyyxn5qhU62Nv4Bec6LlhwZkgYcNJG26I56yhDOpaoYPxs0rbYKCDNJ5D9S_bMeN5CxSiMMwy_1q5YItoqp89fvwsJVxhWb2lZ3DR-l8BYNrVD4rfZEMKu2GJiUWGB65KUayq8GncdkjWd-nCOFKVhrtosYrCeT3U1KdP4UQw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/movies/6",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /actors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODAxODc4LCJleHAiOjE2MDA4ODgyNzgsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfBfDWNGf7Jz-_EzK1zWRJ0TSvXHIP9XwjFQhqqvXONGkXcBkVbNPA5GOCx1xzrCH3xPsNNxvvGaZjLYMrKjRpjMG3TfL2ZCF8ghmogyjBjvzQjc5LNXwi4k_A8difY5hIBKf7-CkafUXZZYVF3Hu8hZmyxEUlMYWSLceDMSWaEAs36HuzbOkgf_J4c_tCq-q6z0zwW2e6FQZJKcEssiMDYu16w46wsoTom78n_r1BRgzF2k6wL-PIaxcjgrrRvH06gSYvy5EiSyErL63D1p5TfxZVrqVWK-cEOAXY9VbsnQS4QZa22rreKRNWgRaq3GTG_lLO8dDAFGSb3N8SEr8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"age\": 75,\r\n            \"gender\": \"male\",\r\n            \"name\": \"Tom Cruisecccc\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODAxODc4LCJleHAiOjE2MDA4ODgyNzgsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfBfDWNGf7Jz-_EzK1zWRJ0TSvXHIP9XwjFQhqqvXONGkXcBkVbNPA5GOCx1xzrCH3xPsNNxvvGaZjLYMrKjRpjMG3TfL2ZCF8ghmogyjBjvzQjc5LNXwi4k_A8difY5hIBKf7-CkafUXZZYVF3Hu8hZmyxEUlMYWSLceDMSWaEAs36HuzbOkgf_J4c_tCq-q6z0zwW2e6FQZJKcEssiMDYu16w46wsoTom78n_r1BRgzF2k6wL-PIaxcjgrrRvH06gSYvy5EiSyErL63D1p5TfxZVrqVWK-cEOAXY9VbsnQS4QZa22rreKRNWgRaq3GTG_lLO8dDAFGSb3N8SEr8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"Gone with the wind\",\r\n            \"release_date\": \"1939-02-16\",\r\n            \"country\": \"US\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /actors",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Water5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODAxODc4LCJleHAiOjE2MDA4ODgyNzgsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.jfBfDWNGf7Jz-_EzK1zWRJ0TSvXHIP9XwjFQhqqvXONGkXcBkVbNPA5GOCx1xzrCH3xPsNNxvvGaZjLYMrKjRpjMG3TfL2ZCF8ghmogyjBjvzQjc5LNXwi4k_A8difY5hIBKf7-CkafUXZZYVF3Hu8hZmyxEUlMYWSLceDMSWaEAs36HuzbOkgf_J4c_tCq-q6z0zwW2e6FQZJKcEssiMDYu16w46wsoTom78n_r1BRgzF2k6wL-PIaxcjgrrRvH06gSYvy5EiSyErL63D1p5TfxZVrqVWK-cEOAXY9VbsnQS4QZa22rreKRNWgRaq3GTG_lLO8dDAFGSb3N8SEr8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"country\": \"Venus\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://myapphsbk.herokuapp.com/movies/7",
+							"protocol": "https",
+							"host": [
+								"myapphsbk",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZZbG5Da0VoRjNHZlgxYV9uVDFwVCJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZTc3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZjM0MzgxMmQ1MzA3YTAwM2QyOTU0ZTQiLCJhdWQiOiJjb2ZmZWUiLCJpYXQiOjE1OTc3ODQ0MTIsImV4cCI6MTU5Nzg3MDgxMiwiYXpwIjoiV0R6QWdFellFTU1ma0kyMWJ0aDY1bmo3MjVnelBqUTciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.e-fUKmKpT5d8_X0-AAlAHKgSxPO1AsMCygtrnJxhViL3dzjOyxp0pzAfY47pOXP0qewmIdTz6pa6Bx_nSpHhHlXgdZwS8HLO1H44dc7yq7UPZKvkkbD2BKs7LCEiM8aKVRQSgBlSSWXPrJVXQCrgKTtAwUfawTg-kNYr_oXmt4HNTrJJRdaIXFqqcxtsl06BNORX3KUZG01nQ5eMw__-cAZrg6xxYvYkGlZdilBfKzuEvWW3WjrBZvJeqWNSyvjHVoSBsLOo5zeBDyQ-n0e0ACx67acTKhopTAu563q32XtYpeWJJUJ-JQmUsRIkvurlQjAvIPNE0Y8101RQqTDUug",
+						"type": "string"
+					}
+				]
+			},
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
