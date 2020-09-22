@@ -80,7 +80,7 @@ def get_token_auth_header():
             'description': 'Authorization header is expected.'
         }, 401)
 
-    parts = auth.split('')
+    parts = auth.split(' ')
     if parts[0].lower() != 'bearer':
         raise AuthError({
             'code': 'invalid_header',
