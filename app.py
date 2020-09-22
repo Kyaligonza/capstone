@@ -5,6 +5,7 @@ from flask_cors import CORS, cross_origin
 from models import setup_db, Actors, Movies
 from auth.auth import AuthError, requires_auth
 
+
 def create_app(test_config=None):
 
     app = Flask(__name__)
@@ -19,11 +20,10 @@ def create_app(test_config=None):
     #   response.headers.add('Access-Control-Allow-Methods','GET,PATCH,POST,DELETE')
     #   return response
 
-    
     @app.route('/actors', methods=['GET'])
     # @cross_origin
     @requires_auth('get:actors')
-    def get_actors(payload): 
+    def get_actors(payload):
         try:
             actors = Actors.query.order_by(Actors.id).all()
             actorx = [actor.format() for actor in actors]
@@ -33,11 +33,11 @@ def create_app(test_config=None):
                 'actors': actorx
             }), 200
         except:
-            abort(500)  
+            abort(500)
 
     @app.route('/movies', methods=['GET'])
     @requires_auth('get:movies')
-    def get_movies(payload): 
+    def get_movies(payload):
         try:
             movies = Movies.query.order_by(Movies.id).all()
             moviex = [movie.format() for movie in movies]
@@ -47,12 +47,11 @@ def create_app(test_config=None):
                 'movies': moviex
             }), 200
         except:
-            abort(500)  
+            abort(500)
 
-    
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
     @requires_auth('delete:actors')
-    def delete_actors(payload,actor_id):      
+    def delete_actors(payload, actor_id):
         actor = Actors.query.filter(Actors.id == actor_id).one_or_none()
 
         if actor is None:
@@ -66,10 +65,10 @@ def create_app(test_config=None):
             }), 200
         except BaseException:
             abort(500)
-    
+
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
     @requires_auth('delete:movies')
-    def delete_movies(payload,movie_id):      
+    def delete_movies(payload, movie_id):
         movie = Movies.query.filter(Movies.id == movie_id).one_or_none()
 
         if movie is None:
@@ -83,10 +82,10 @@ def create_app(test_config=None):
             }), 200
         except BaseException:
             abort(500)
-    
+
     @app.route('/actors', methods=['POST'])
     @requires_auth('post:actors')
-    def post_actors(payload):  
+    def post_actors(payload):
         body = request.get_json()
         try:
             req_name = body.get("name", None)
@@ -106,11 +105,10 @@ def create_app(test_config=None):
             }), 200
         except BaseException:
             abort(422)
-    
-    
+
     @app.route('/movies', methods=['POST'])
     @requires_auth('post:movies')
-    def post_movies(payload):  
+    def post_movies(payload):
         body = request.get_json()
         try:
             req_title = body.get("title", None)
@@ -130,11 +128,10 @@ def create_app(test_config=None):
             }), 200
         except BaseException:
             abort(422)
-    
 
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
     @requires_auth('patch:actors')
-    def update_actor(payload,actor_id): 
+    def update_actor(payload, actor_id):
 
         body = request.get_json()
 
@@ -151,7 +148,8 @@ def create_app(test_config=None):
                 actor.gender = body.get('gender')
 
             actor.update()
-            actor_updated = Actors.query.filter(Actors.id == actor_id).one_or_none()
+            actor_updated = Actors.query.filter(
+                Actors.id == actor_id).one_or_none()
 
             return jsonify({
                 'success': True,
@@ -161,10 +159,9 @@ def create_app(test_config=None):
         except:
             abort(422)
 
-    
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     @requires_auth('patch:movies')
-    def update_movie(payload,movie_id): 
+    def update_movie(payload, movie_id):
 
         body = request.get_json()
 
@@ -181,7 +178,8 @@ def create_app(test_config=None):
                 movie.country = body.get('country')
 
             movie.update()
-            movie_updated = Movies.query.filter(Movies.id == movie_id).one_or_none()
+            movie_updated = Movies.query.filter(
+                Movies.id == movie_id).one_or_none()
 
             return jsonify({
                 'success': True,
@@ -195,13 +193,11 @@ def create_app(test_config=None):
     def be_cool():
         return "This is our time, the time is now...FSND graduate #excited!!!!"
 
-
-
     # Error Handling
     '''
-    Error handling for unprocessable entity, resource not found, server error and auth_errors
+    Error handling for unprocessable entity, resource not found,
+    server error and auth_errors
     '''
-
 
     @app.errorhandler(422)
     def unprocessable(error):
@@ -211,7 +207,6 @@ def create_app(test_config=None):
             "message": "unprocessable"
         }), 422
 
-
     @app.errorhandler(404)
     def not_found(error):
         return jsonify({
@@ -220,7 +215,6 @@ def create_app(test_config=None):
             "message": "resource not found"
         }), 404
 
-
     @app.errorhandler(500)
     def server_error(error):
         return jsonify({
@@ -228,7 +222,6 @@ def create_app(test_config=None):
             "error": 500,
             "message": "Server Error"
         }), 500
-
 
     '''
     Error handler for AuthError
@@ -243,7 +236,6 @@ def create_app(test_config=None):
             "message": error.error['description']
         }), error.status_code
 
-
     @app.errorhandler(405)
     def method_not_allowed(error):
         return jsonify({
@@ -251,7 +243,6 @@ def create_app(test_config=None):
             "error": 405,
             "message": 'Method Not Allowed'
         }), 405
-
 
     @app.errorhandler(400)
     def bad_request(error):
@@ -261,7 +252,6 @@ def create_app(test_config=None):
             "message": 'Bad Request'
         }), 400
 
-
     @app.errorhandler(401)
     def unauthorised(error):
         return jsonify({
@@ -270,7 +260,6 @@ def create_app(test_config=None):
             "message": 'Unauthorised'
         }), 401
 
-
     @app.errorhandler(403)
     def forbidden(error):
         return jsonify({
@@ -278,15 +267,14 @@ def create_app(test_config=None):
             "error": 403,
             "message": 'Forbidden'
         }), 403
-        
 
     return app
+
 
 app = create_app()
 
 if __name__ == '__main__':
-
+    app.run()
     # port = int(os.environ.get("PORT", 5000))
     # app.run(host='localhost', port=port, debug=True)
-    app.run()
     # app.run(host='127.0.0.1', port=5000, debug=True)

@@ -1,4 +1,4 @@
-CAPSTONE PROJECT: Casting Agency App - MyappHSBK
+CAPSTONE PROJECT: Casting Agency App - MyappHsbk
 -----
 
 ### Introduction
@@ -100,16 +100,16 @@ This API's base URL is https://myapphsbk.herokuapp.com/actors
 8. Test your endpoints with [Postman](https://getpostman.com). 
     - Register 3 users - assign the above roles to them.
     - Sign into each account and make note of the JWT.
-    - Import the postman collection `./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json`
+    - Import the postman collection `./starter/myapphsbk.postman_collection.json`
     - Right-clicking the collection folder for barista and manager, navigate to the authorization tab, and including the JWT in the token field (you should have noted these JWTs).
     - Run the collection. 
 
 ### AUTHENTICATION (Note this a temporay API and many of the sensitive environment variables will be removed at a later stage )
-Consuming the API through CURL or POSTMAN ( `./starter_code/backend/udacity-fsnd-udaspicelatte.postman_collection.json`) the JWT tokens are provided in the config.py file as follows:
+Consuming the API through CURL or POSTMAN ( `./starter/myapphsbk.postman_collection.json`) the JWT tokens are provided in the config.py file as follows:
 bearer_tokens = {
-    "casting_assistant" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5ZWQ2OWM1MTA2MDA2ZGUyMzNjNCIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwMzg0NTY5LCJleHAiOjE2MDA0NzA5NjksImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.N_EmzXAi-BB6t6zWp04yjm1cd0LKYVOnYXa0IiLsJiRjNgR-ABGhCMxdZgxeTvLFXKcd7GDNdJiRunC7KzuIIzvlKtbgbHn8wFjwNbjjvwODXfD1zZwozfai4st6IivaGaqNiSEt2jI7RMYJCamMmTlbBm9n6WXz3ZG5ibTUzSHy0gxFHhy03GLWcnzrx_5fr0FIzCy2bVa-grPf-w9dNOIpNfPLntPcLrh3XvLwJDgBTU4VltHCTGIOdFXUBRw3DJ_9EMUsBjhpmepSI9s2PEQrpOz6miobLqcG_6KvMAP2lPp88P-nks7BG1CDSEe-qrM91-ZntJRjyfM8LUry-A",
-    "executive_producer" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaQGNsaWVudHMiLCJhdWQiOiJzdGFycyIsImlhdCI6MTYwMDM5MDk4OCwiZXhwIjoxNjAwNDc3Mzg4LCJhenAiOiJ4Rm9HOFI3MUVFRlhtSElPS1B4R0xwZFRRQ0cyaVpWWiIsInNjb3BlIjoiZ2V0OmFjdG9ycyBnZXQ6bW92aWVzIHBvc3Q6YWN0b3JzIHBvc3Q6bW92aWVzIGRlbGV0ZTphY3RvcnMgZGVsZXRlOm1vdmllcyBwYXRjaDphY3RvcnMgcGF0Y2g6bW92aWVzIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIiwiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiXX0.NdONqHECV3Op63WD_9gDR9PUVmolbJ8kZ-nSG6Plum2OF7fM0obG2NVO50fSYG38zikQuTI-_W5Qs4vsIT1WH98ACG0VEe48op7X72Qia0nkYkWGY_cE8A6wPmnNb1b8vn1vFbTImwd_dOObmI3lmfcpvsoWAkAYUSSb6G09WUpNtWDI3zdv3BCF95KRmLb3BH0Uw7VFpA3MzP_K8TV5P4z7FqTE5MnHvioUYaz0rrLLSDhTHWSHl79M6opQtmg56nvJPoHu6FmVAwwYr1lo-ZeKAQnP6ylNyxwEMXRY5CgVywR2RXh3ivnfSKsLXIACwIGmelmtjO1HWp-PQSHzdw",
-    "casting_director" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5ZGMxMjA3NmE3MDA2NzhmODM4OSIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwMzg0NzAzLCJleHAiOjE2MDA0NzExMDMsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.IpU3FrBMsnRLRO9ErMbcFx2U_GGLZQ7LwFhnQHSZcPYwk8ovxjuQXnRRDtHcAHspY0TUIkpP1HMFAMXXtSRsX5iRfQzkrb1fgdVvnkkasrbIrdHCdJlVsxbaxEcjsMuAff7XwTXrGJkI-e2s7l9Z5WqO5Gfm64Fu-yJ6_knOeTjFlQLciLcu-ORIq9dB-EQjT6ogmHCDnDvlPi6at03fHgcrEEHtrC4n6LJlyeYDDgQLtjpXxExpKSMd485_8MLTP7QAsml-krBnM_ptSOzeJ7BuYVl1mz31xpKD88wCWyFgo2qRzQZj9hfU0rMM4vfRxi8JbarOA6F2n7NXNqVg-g"
+    "casting_assistant" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5ZWQ2OWM1MTA2MDA2ZGUyMzNjNCIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODExODgwLCJleHAiOjE2MDA4OTgyODAsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.UNc_I9utPjpp-kOMANBFNTQOI92yWY-GOPkNt4lSXVMm8VdUmSXm5_24dlUpapJGKUA2glLSTWpk5qBi4ip1ZDn7Dq_2RCluzZPx7zqzL5kgse2VIUuN7z5qPx5bk_ZpuVLbVsmW1VsrZ2SUdClep7pqMtMjlfuQpC2gaz6B4rJSwOKUit6sYnkvM11osOARGpit9NxeMGaCDfwFld_uf8JOiddfSW-rDXQSHYSNa4l4qc33D4HdCqK50hKrrv5e8YP8pLDFeS6n5jDgu68311JxuQh7us3l_sN4sDpv5OZwvoDdaGAD5VvN91KfeMS6gQv041IeDAMFdd6LKpvFUg",
+    "executive_producer" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5YzExYzY0NzhiMDA2N2Q5MGU0MyIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODExMzYyLCJleHAiOjE2MDA4OTc3NjIsImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiLCJwb3N0Om1vdmllcyJdfQ.ivUg3eiI4SBFsLmhrnkWnivxKBu9QhNitG3FW2xUHJeoD6gbAszFSlRX_r1_-LXuUV3j1UZIKCOMokjjEvxxfzIgMIN6-92y4RJmJkvHjOoVgLvGTc7IJDcEzdmvNTFVZbPjwtaOzoLNdM8uxw_rSd2vhj4luaPAnLaLEnf4x83i8VLAASKqi9a5d2ri4t0rDc0y7q6vT9so2zB91qPRN1mdxOUahUo8fC9CyTqBJOG58CKzfbH5_3yQV4IBBhVV3qTM4yVFLMiICKtrDLRlpKEHqUrTd2-h-rs5NWQf6sjtXjRxekJELY5E9JGHT86sJ5i84QbQ8EVAS39damncWg",
+    "casting_director" : "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Indlc2FPUHp5TGNBTUtkLTlaSmlydCJ9.eyJpc3MiOiJodHRwczovL2FnZW50ODgudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmNTI5ZGMxMjA3NmE3MDA2NzhmODM4OSIsImF1ZCI6InN0YXJzIiwiaWF0IjoxNjAwODExNTk5LCJleHAiOjE2MDA4OTc5OTksImF6cCI6InhGb0c4UjcxRUVGWG1ISU9LUHhHTHBkVFFDRzJpWlZaIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.NBC446VZgBDlqpnjphEQmKv3Ku6HZHWtpPowbTcqNR7GLEWmi1C6TT-IcsUvmu5qabMMAK5FGic_tzCy8OarnWoKBjJufuWXdlr02bFDr4g8XLGTq0BfB16Ckg8d6ab9z65icXyel4va3ZxRHIB0eInbdLhO7xkwNh9SJTb3beeyHunIRWVF2GZJEFrc4dsmflfUlRQF3OZWNit5jb2dVouJTqblkRetIidz4C8Px_uVovvauT0w6g0Y9LXqLe86__O_oJYZ3Ti7ZELhDoG3yT9rMVjUKn3K_ELdO6t2y2WtQAom5zK8_0vn8kPLYoNf0XewoFhYBwf1dE-s5vNSwQ"
 }
 To refresh the tokens or access through the URL then the following sign-in link and username-password accesses are available:
 1. AUth0 JWT link: https://agent88.us.auth0.com/authorize?audience=stars&response_type=token&client_id=xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ&redirect_uri=https://myapphsbk.herokuapp.com/actors
@@ -122,191 +122,144 @@ To refresh the tokens or access through the URL then the following sign-in link 
 
 
 ### Endpoints
-This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
-
+ 
 Endpoints
-GET '/categories'
+GET '/actors'
 GET ...
 POST ...
 DELETE ...
 
-GET '/categories'
-- Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+GET '/actors'
+- Fetches a dictionary of actors in which the keys are actors, success and the value is the corresponding string of actors and their features.
 - Request Arguments: None
-- Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs. 
-{'1' : "Science",
-'2' : "Art",
-'3' : "Geography",
-'4' : "History",
-'5' : "Entertainment",
-'6' : "Sports"}
-
-GET '/questions'
-- Fetches a dictionary of questions in which the keys are the categories,questions,success and total_questions; and the value is the corresponding list for categories and questions, string and int for success and total_questions respectively:
+- Returns: An object with two keys, success and actors which contains list objects of key:value pairs represented below.
+{
+    "actors": [
+        {
+            "age": 58,
+            "gender": "male",
+            "id": 1,
+            "name": "Tom Cruise"
+        },
+        {
+            "age": 56,
+            "gender": "male",
+            "id": 2,
+            "name": "Keanu Reeves"
+        },
+        {
+            "age": 48,
+            "gender": "Female",
+            "id": 3,
+            "name": "Jada Pinkett"
+        }
+    ],
+    "success": true
+}
+GET '/movies'
+- Fetches a dictionary of movies in which the keys are movies, success and the value is the corresponding string of movies and their features.
 - Request Arguments: None
-- Returns: An object with four keys, categories,success, total_questions and questions which contains list objects of key:value pairs represented below.
- 
+- Returns: An object with two keys, success and movies which contains list objects of key:value pairs represented below.
 {
-  "categories": [
-    "Science", 
-    "Art", 
-    "Geography", 
-    "History", 
-    "Entertainment", 
-    "Sports"
-  ], 
-  "questions": [
-    {
-      "answer": "Maya Angelou", 
-      "category": 3, 
-      "difficulty": 2, 
-      "id": 5, 
-      "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
-    }, 
-    {
-      ......
-    },
-    {
-      "answer": "Escher", 
-      "category": 1, 
-      "difficulty": 1, 
-      "id": 16, 
-      "question": "Which Dutch graphic artist\u2013initials M C was a creator of optical illusions?"
-    }
-  ], 
-  "success": true, 
-  "total_questions": 35
+    "movies": [
+        {
+            "country": "USA",
+            "id": 1,
+            "release_date": "Thu, 15 May 2003 00:00:00 GMT",
+            "title": "The MAtrix Reloaded"
+        },
+        {
+            "country": "USA",
+            "id": 2,
+            "release_date": "Fri, 16 May 1986 00:00:00 GMT",
+            "title": "Top Gun"
+        },
+        {
+            "country": "UK",
+            "id": 3,
+            "release_date": "Thu, 10 Jul 2003 00:00:00 GMT",
+            "title": "Love Actually"
+        }
+    ],
+    "success": true
 }
 
-GET '/categories/<int:category_id>/questions'
-- Fetches a dictionary of questions based on categories.
-- Request Arguments: category_id
-- Returns: An object with three keys,success, total_questions and questions which contains a list of key:value pairs represented below.
-{
-  "questions": [
-    {
-      "answer": "Escher", 
-      "category": 1, 
-      "difficulty": 1, 
-      "id": 16, 
-      "question": "Which Dutch graphic artist\u2013initials M C was a creator of optical illusions?"
-    }, 
-    {
-      "answer": "Mona Lisa", 
-      "category": 1, 
-      "difficulty": 3, 
-      "id": 17, 
-      "question": "La Giaconda is better known as what?"
-    }, 
-    {
-      "answer": "One", 
-      "category": 1, 
-      "difficulty": 4, 
-      "id": 18, 
-      "question": "How many paintings did Van Gogh sell in his lifetime?"
-    }, 
-    {
-      "answer": "Jackson Pollock", 
-      "category": 1, 
-      "difficulty": 2, 
-      "id": 19, 
-      "question": "Which American artist was a pioneer of Abstract Expressionism, and a leading exponent of action painting?"
-    }
-  ], 
-  "success": true, 
-  "total_questions": 36
-}
-
-DELETE '/questions/<int:question_id>'
-- Deletes a question using a question id.
-- Request Arguments: question id
-- Returns: An object with two keys, success and id of the question deleted, that contains an object of key:value pairs as follows. 
+DELETE '/actors/<int:actor_id>'
+- Deletes an actor using an actor id.
+- Request Arguments: actor id
+- Returns: An object with two keys, success and id of the actor deleted, that contains an object of key:value pairs as follows. 
 
 {
-    "success":True,
-    "item_deleted":24
+    "delete": 13,
+    "success": true
 }
 
-POST '/questions'
-C:\Users\hp>curl -X POST -H "Content-Type:application/json" -d "{  \"question\" : \"who is Frodo\",  \"answer\" : \"Baggins of course in Lord of the rings\",\"category\":4 }" http://localhost:5000/questions
+DELETE '/movies/<int:movie_id>'
+- Deletes a movie using a movie id.
+- Request Arguments: movie id
+- Returns: An object with two keys, success and id of the movie deleted, that contains an object of key:value pairs as follows. 
 
-- Creates a new question, which requires the question and answer text, 
-  category, and difficulty score.
+{
+    "delete": 6,
+    "success": true
+}
+
+POST '/actors'
+
+- Creates a new actor, which takes the name,age and gender attributes.
 - Request Arguments: None
-- Returns: An object with a two keys,success and total_questions that contains objects of key:value pairs represented below.
+- Returns: An object with a two keys,success and actors with id of actor created that contains objects of key:value pairs represented below.
 
 {
-  "Total_questions": 36,
-  "success": true
+    "actors": 14,
+    "success": true
 }
 
-POST '/questions'
-C:\Users\hp>curl -X POST -H "Content-Type:application/json" -d "{  \"searchTerm\":\"city\" }" http://localhost:5000/questions
+POST '/movies'
 
-- Retrieves question(s) based on a serach term, requires a string searchTerm to be provided.
+- Creates a new movie, which takes the title,release_date and country attributes.
 - Request Arguments: None
-- Returns: An object with four keys,success, categories, suggested_nb of questions and questions which contains a list of key:value pairs represented below.
+- Returns: An object with a two keys,success and movies with id of movie created that contains objects of key:value pairs represented below.
+
 {
-  "categories": [
-    "Science",
-    "Art",
-    "Geography",
-    "History",
-    "Entertainment",
-    "Sports"
-  ],
-  "questions": [
-    {
-      "answer": "Agra",
-      "category": 2,
-      "difficulty": 2,
-      "id": 15,
-      "question": "The Taj Mahal is located in which Indian city?"
-    },
-    {
-      "answer": "Vancouver",
-      "category": 2,
-      "difficulty": 2,
-      "id": 24,
-      "question": "greatest city in the world"
-    },
-    {
-      "answer": "rome",
-      "category": 0,
-      "difficulty": 4,
-      "id": 27,
-      "question": "Capital city of Italy?"
-    }
-  ],
-  "success": true,
-  "suggested_nb": 3
+    "movies": 7,
+    "success": true
 }
 
-POST '/quizzes'
-C:\Users\hp>curl -X POST -H "Content-Type:application/json" -d "{\"quiz_category\":"{\"id\":1,\"type\":\"Art\"}", \"previous_questions\":[]}" http://localhost:5000/quizzes
+PATCH '/actors/<int:actor_id>'
 
-- Retrieves randomn question by category to play the quiz, requires quiz_category id and the list of previous_questions to be provided.
-- Request Arguments: quiz_category id and a list of previous_questions.
-- Returns: An object with three keys, success, question and previous_questions which contains a list of key:value pairs represented below.
+- Updates an actor's details whose actor_id is submitted.
+- Request Arguments: actor_id
+- Returns: An object with two keys, success, actor with updated details  which contains a list of key:value pairs represented below.
 {
-  "previous_questions": [
-    {
-      "answer": "Escher",
-      "category": 2,
-      "difficulty": 1,
-      "id": 16,
-      "question": "Which Dutch graphic artist\u2013initials M C was a creator of optical illusions?"
-    }
-  ],
-  "question": {
-    "answer": "Escher",
-    "category": 2,
-    "difficulty": 1,
-    "id": 16,
-    "question": "Which Dutch graphic artist\u2013initials M C was a creator of optical illusions?"
-  },
-  "success": true
+    "actor": [
+        {
+            "age": 75,
+            "gender": "male",
+            "id": 12,
+            "name": "Harrison Ford"
+        }
+    ],
+    "success": true
 }
+
+PATCH '/movies/<int:movie_id>'
+
+- Updates and movie's details whose movie_id is submitted.
+- Request Arguments: movie_id
+- Returns: An object with two keys, success, movie with updated details  which contains a list of key:value pairs represented below.
+{
+    "movies": [
+        {
+            "country": "Venus",
+            "id": 7,
+            "release_date": "Thu, 16 Feb 1939 00:00:00 GMT",
+            "title": "Gone with the wind"
+        }
+    ],
+    "success": true
+}
+
 ```
 Error handling
 Error messages will appear in the following format:
@@ -315,18 +268,21 @@ Error messages will appear in the following format:
     "error":404,
     "message":item not found
 }
-The API captures four errors types when the requests fail:
+The API captures seven errors types when the requests fail:
     .400: Bad request
+    .401: Unauthorised
+    .403: Forbidden
     .404: Item not found
-    .405: Method not allowed for this end point
-    .422: Something amiss try again
+    .405: Method Not Allowed
+    .422: unprocessable
+    .500: Server Error
 
 ### Testing
 To run the tests, run
 ```
-dropdb trivia_test
-createdb trivia_test
-psql trivia_test < trivia.psql
-python test_flaskr.py
+python3 test_app.py
 ```
+Expected result: 
+Ran 16 tests in 6.707s
 
+OK

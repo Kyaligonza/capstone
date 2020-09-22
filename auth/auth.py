@@ -23,10 +23,6 @@ CLIENT_SECRET = auth0_config['CLIENT_SECRET']
 # CLIENT_ID = os.environ.get('CLIENT_ID')
 # CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
-# AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
-# ALGORITHMS = os.environ['ALGORITHMS']
-# API_AUDIENCE = os.environ['API_AUDIENCE']
-
 # AuthError Exception
 
 '''
@@ -46,7 +42,9 @@ class AuthError(Exception):
 
 # conn = http.client.HTTPSConnection("agent88.us.auth0.com")
 
-# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",\"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",\"audience\":\"stars\",\"grant_type\":\"client_redentials\"}"
+# payload = "{\"client_id\":\"xFoG8R71EEFXmHIOKPxGLpdTQCG2iZVZ\",
+# \"client_secret\":\"euZkCMgG5Kq2gBRiB4zgiIi8p1-eNOZ2RhIuBOuynF2mLVQdjpWOHC7DnS74ZR5_\",
+# \"audience\":\"stars\",\"grant_type\":\"client_redentials\"}"
 
 # headers = {"content-type": "application/json"}
 
@@ -59,21 +57,12 @@ class AuthError(Exception):
 # print(result['access_token'])
 
 
-
 def get_token_auth_header():
     """Obtains the Access Token from the Authorization Header
     """
     # auth = {'Authorization': 'Bearer {}'.format(access_token)}
     # auth ='Bearer {}'.format(access_token)
     auth = request.headers.get('Authorization', None)
-    #  if auth is None and access_token == access_token:
-    #     auth ='Bearer {}'.format(access_token)
-    
-    # else :
-    #     raise AuthError({
-    #         'code': 'authorization_header_missing',
-    #         'description': 'Authorization header is expected.'
-    #     }, 401)
     if not auth:
         raise AuthError({
             'code': 'authorization_header_missing',
@@ -210,6 +199,7 @@ implement @requires_auth(permission) decorator method
         to the decorated method
 '''
 
+
 def requires_auth(permission=''):
     def requires_auth_decorator(f):
         @wraps(f)
@@ -218,6 +208,5 @@ def requires_auth(permission=''):
             payload = verify_decode_jwt(token)
             check_permissions(permission, payload)
             return f(payload, *args, **kwargs)
-
         return wrapper
     return requires_auth_decorator
