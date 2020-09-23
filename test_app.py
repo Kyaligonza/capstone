@@ -123,7 +123,8 @@ class MyapphsbkTestCase(unittest.TestCase):
 
     @unittest.skip("need a new actor_id otherwise will fail")
     def test_delete_actor(self):
-        res = self.client().delete('/actors/11', headers=self.producer_auth_header)
+        res = self.client().delete('/actors/11',
+                                   headers=self.producer_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -131,7 +132,8 @@ class MyapphsbkTestCase(unittest.TestCase):
         self.assertEqual(data['delete'], 11)
 
     def test_404_if_actor_does_not_exist(self):
-        res = self.client().delete('/actors/1000', headers=self.producer_auth_header)
+        res = self.client().delete('/actors/1000',
+                                   headers=self.producer_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
@@ -140,7 +142,8 @@ class MyapphsbkTestCase(unittest.TestCase):
 
     @unittest.skip("need a new movie_id otherwise will fail")
     def test_delete_movie(self):
-        res = self.client().delete('/movies/11', headers=self.producer_auth_header)
+        res = self.client().delete('/movies/11',
+                                   headers=self.producer_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -148,7 +151,8 @@ class MyapphsbkTestCase(unittest.TestCase):
         self.assertEqual(data['delete'], 11)
 
     def test_404_if_movie_does_not_exist(self):
-        res = self.client().delete('/movies/1000', headers=self.producer_auth_header)
+        res = self.client().delete('/movies/1000',
+                                   headers=self.producer_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
@@ -203,7 +207,8 @@ class MyapphsbkTestCase(unittest.TestCase):
         self.assertTrue(data['actor'])
 
     def test_update_actor_nonexistant(self):
-        res = self.client().patch('/actors/1000', headers=self.producer_auth_header)
+        res = self.client().patch('/actors/1000',
+                                  headers=self.producer_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 422)
@@ -220,7 +225,8 @@ class MyapphsbkTestCase(unittest.TestCase):
         self.assertTrue(data['movies'])
 
     def test_update_movie_nonexistant(self):
-        res = self.client().patch('/movies/1000', headers=self.producer_auth_header)
+        res = self.client().patch('/movies/1000',
+                                  headers=self.producer_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 422)
@@ -233,7 +239,8 @@ class MyapphsbkTestCase(unittest.TestCase):
     casting_assitant and casting_director '''
 
     def test_get_actors(self):
-        res = self.client().get('/actors', headers=self.assistant_auth_header)
+        res = self.client().get('/actors',
+                                headers=self.assistant_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -241,7 +248,8 @@ class MyapphsbkTestCase(unittest.TestCase):
         self.assertTrue(data['actors'])
 
     def test_delete_actor(self):
-        res = self.client().delete('/actors/13', headers=self.assistant_auth_header)
+        res = self.client().delete('/actors/13',
+                                   headers=self.assistant_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 403)
@@ -295,7 +303,8 @@ class MyapphsbkTestCase(unittest.TestCase):
         self.assertEqual(data['message'], 'Permission not found.')
 
     def test_delete_movie(self):
-        res = self.client().delete('/movies/9', headers=self.director_auth_header)
+        res = self.client().delete('/movies/9',
+                                   headers=self.director_auth_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 403)

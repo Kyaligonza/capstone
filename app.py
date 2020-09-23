@@ -32,7 +32,7 @@ def create_app(test_config=None):
                 'success': True,
                 'actors': actorx
             }), 200
-        except:
+        except Exception:
             abort(500)
 
     @app.route('/movies', methods=['GET'])
@@ -46,7 +46,7 @@ def create_app(test_config=None):
                 'success': True,
                 'movies': moviex
             }), 200
-        except:
+        except Exception:
             abort(500)
 
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
@@ -156,7 +156,7 @@ def create_app(test_config=None):
                 'actor': [actor_updated.format()]
             }), 200
 
-        except:
+        except Exception:
             abort(422)
 
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
@@ -186,7 +186,7 @@ def create_app(test_config=None):
                 'movies': [movie_updated.format()]
             }), 200
 
-        except:
+        except Exception:
             abort(422)
 
     @app.route('/coolkids')
